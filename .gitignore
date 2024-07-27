@@ -1,0 +1,6 @@
+outputs/*
+*.dat
+**/log.lammps
+**/*.lammpstrj
+**/__pycache__
+**/*.pyc
