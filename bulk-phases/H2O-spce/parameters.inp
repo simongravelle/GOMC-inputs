@@ -1,0 +1,63 @@
+*Parameter file for 1-octanol TraPPE-UA
+*Parameters from TraPPE 5
+!*7/5/07 Added parameteres for SPC/E
+!*7/8/07 Added parameters for nitromethane
+!*7/12/07 Added parameteres for nitroethane
+!*6/15/2012 includes refitted dihedral for alkanes/alcohols
+! 8/6/2012 adding parameters for NTO
+! 11/21/2012 MOST UP TO DATE
+BONDS
+!
+!V(bond) = Kb(b - b0)**2
+!
+!Kb: kcal/mole/A**2
+!b0: A
+!
+!atom type Kb          b0  All constants from Charmm
+O   H    99999999999     1.0000 ! SPC bond length  
+
+
+ANGLES
+!
+!V(angle) = Ktheta(Theta - Theta0)**2
+!
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+!atom types     Ktheta    Theta0   Kub     S0
+!
+H   O   H    99999999999    109.47    0.0      0.0 ! water
+
+DIHEDRALS
+!
+!V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+!
+!Kchi: kcal/mole
+!n: multiplicity
+!delta: degrees
+!
+! Kchi (kcal/mol) = Kchi (K) * Boltz. const.
+! Boltzmann = 0.0019872041 kcal / (mol * K)
+!atom types           Kchi        n    delta              description
+
+DIHEDRALS
+!
+!V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+!
+!Kchi: kcal/mole
+!n: multiplicity
+!delta: degrees
+!
+!atom types             Kchi    n   delta
+!
+
+NONBONDED_MIE
+!
+!V(mie) = 4*eps*((sig_ij/r_ij)^n-(sig_ij/r_ij)^6)
+! The energy in the exotic file are expressed in Kelvin (K), as this is the standard convention in the literature.
+! For conversion from K to kcal / mol, multiply
+! by Boltzmann = 0.0019872041 kcal / (mol * K)
+!
+!atom   eps          sig_ij     n    description
+O       78.177       3.166     12   ! 
+H       0.0          0.0     12   ! 

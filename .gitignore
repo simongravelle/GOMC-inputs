@@ -1,4 +1,5 @@
-outputs/*
+**/outputs_*/*
+**/output_*
 *.dat
 **/log.lammps
 **/*.lammpstrj
