@@ -34,3 +34,6 @@ do
 
 done
 
+cp ../../scripts/analysis.py .
+python3 analysis.py
+rm analysis.py
