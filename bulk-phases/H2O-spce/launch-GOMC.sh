@@ -3,30 +3,34 @@
 set -e
 
 # Choose the chemical potential
-mu=3004
-data_folder='outputs_mu'${mu}
-mkdir -p ${data_folder}
+for mu in 3000 3200 3400 3600 3800 4000 4200 4400 4600
+do
 
-newline='ChemPot H2O -'${mu}
-oldline=$(cat input.gomc| grep 'ChemPot H2O')
-sed -i '/'"$oldline"'/c\'"$newline" input.gomc
+    data_folder='outputs_mu'${mu}
+    mkdir -p ${data_folder}
 
-# Ensure that the volume in the input file is the right one
-cp ../../scripts/adjust_volume.py .
-python3 adjust_volume.py
-rm adjust_volume.py
+    newline='ChemPot H2O -'${mu}
+    oldline=$(cat input.gomc| grep 'ChemPot H2O')
+    sed -i '/'"$oldline"'/c\'"$newline" input.gomc
 
-# Create the GOMC topology from LAMMPS files
-cd topology/
-cp ../../../scripts/create_initial_configuration.py .
-python3 create_initial_configuration.py
-rm create_initial_configuration.py
-cd ..
+    # Ensure that the volume in the input file is the right one
+    cp ../../scripts/adjust_volume.py .
+    python3 adjust_volume.py
+    rm adjust_volume.py
 
-GCMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
+    # Create the GOMC topology from LAMMPS files
+    cd topology/
+    cp ../../../scripts/create_initial_configuration.py .
+    python3 create_initial_configuration.py
+    rm create_initial_configuration.py
+    cd ..
 
-${GCMC} +p4 input.gomc
+    GCMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
-mv output_* ${data_folder}
-mv *.dat ${data_folder}
+    ${GCMC} +p4 input.gomc
+
+    mv output_* ${data_folder}
+    mv *.dat ${data_folder}
+
+done
 

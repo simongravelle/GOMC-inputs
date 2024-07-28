@@ -81,9 +81,9 @@ PressureCalc    false
 ################################
 # STEPS 
 ################################
-RunSteps        200000    
-EqSteps         1000      
-AdjSteps        1000        
+RunSteps        20000000    
+EqSteps         100000      
+AdjSteps        5000        
 
 ################################
 # MOVE FREQUENCY              
@@ -135,11 +135,11 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq     true   10000
-RestartFreq         true   100000
-ConsoleFreq         true   10000
-BlockAverageFreq    true   100000
-HistogramFreq       true   100000
+CoordinatesFreq     true   500000
+RestartFreq         true   500000
+ConsoleFreq         true   500000
+BlockAverageFreq    true   500000
+HistogramFreq       true   500000
 
 
 ################################
