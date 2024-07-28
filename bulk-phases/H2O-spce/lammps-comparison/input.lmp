@@ -2,11 +2,11 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable Nstep equal 20000
-variable mu_K equal -4600
+variable Nstep equal 200000
+variable mu_K equal -3200
 variable mu_kcal_mol equal ${mu_K}*0.0019872041
 variable tfac equal 5.0/3.0
-variable Nattempt equal 5
+variable Nattempt equal 100
 
 units real
 boundary p p p

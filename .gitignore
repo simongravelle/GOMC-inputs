@@ -8,4 +8,9 @@
 **/topology/lammps/*.data
 **/topology/gomc/*.pdb
 **/topology/gomc/*.psf
-**/lammps-comparison/**.dat
+**/lammps-comparison/*.dat
+!**/outputs_mu*/density_*.dat
+!**/outputs_mu*/number_*.dat
+!**/outputs_mu*/log.lammps
+
+
