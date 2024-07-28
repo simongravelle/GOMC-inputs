@@ -2,7 +2,7 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable box0 equal 80
+variable box0 equal 25
 variable boxm equal -${box0}/2
 variable boxp equal ${box0}/2
 
@@ -35,7 +35,7 @@ write_data H2O-0.data
 
 clear
 
-variable N0 equal 400
+variable Nb1 equal 2000
 
 units real
 boundary p p p
@@ -55,7 +55,7 @@ labelmap bond 1 O-H
 labelmap angle 1 H-O-H
 
 molecule h2Omol H2O.mol
-create_atoms 0 random ${N0} 87910 NULL mol &
+create_atoms 0 random ${Nb1} 87910 NULL mol &
     h2Omol 454756 overlap 3.0 maxtry 1000
 
 group H2O type O H

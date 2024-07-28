@@ -6,7 +6,7 @@ set -e
 lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.3/lmp
 
 # Choose the chemical potential
-for mu in 4600 4400 4200 4000 3800 3600 3400 3200 3000
+for mu in 3400 # 4600 4400 4200 4000 3800 3600 3400 3200 3000
 do
 
     if [[ $mu -gt 3300 ]]

@@ -70,5 +70,3 @@ for folder in subfolders:
                 density /= 6.022e23 # g/A3
                 density *= (1e8)**3 # g/cm3
                 np.savetxt(file_name, np.vstack([step_vector, density]).T)
-    else:
-        print("missing file")

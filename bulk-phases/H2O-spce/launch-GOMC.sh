@@ -6,33 +6,31 @@ set -e
 lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.3/lmp
 
 # Choose the chemical potential
-# 3000 3200
-for mu in 3400 3600 3800 4000 4200 4400 4600
+for mu in 3800 4200 4600 5000 5400 5800 6200
 do
 
-    if [[ $mu -gt 3300 ]]
+    Nstep=5000000
+    NCoord=100000
+    if [[ $mu -gt 10000 ]]
     then
         # expected vapor
         box0=80
-        Nstep=20000
-        NCoord=1000
+        Nb1=200
     else
         # expected liquid
         box0=25
-        Nstep=200000
-        NCoord=10000
+        Nb1=2000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
-
-    # create folder for data saving
-    data_folder='outputs_mu'${mu}
-    mkdir -p ${data_folder}
 
     # Adjust initial box size
     # Call LAMMPS
     cd topology/lammps
         newline='variable box0 equal '${box0}
         oldline=$(cat input.lmp| grep 'variable box0 equal ')  
+        sed -i '/'"$oldline"'/c\'"$newline" input.lmp
+        newline='variable Nb1 equal '${Nb1}
+        oldline=$(cat input.lmp| grep 'variable Nb1 equal ')  
         sed -i '/'"$oldline"'/c\'"$newline" input.lmp
         ${lmp} -in input.lmp
     cd ../../
@@ -66,6 +64,10 @@ do
     GCMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
     ${GCMC} +p8 input.gomc
+
+    # create folder for data saving
+    data_folder='outputs_mu'${mu}
+    mkdir -p ${data_folder}
 
     mv output_* ${data_folder}
     mv *.dat ${data_folder}
