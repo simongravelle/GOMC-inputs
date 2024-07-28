@@ -46,8 +46,7 @@ do
     newline='variable Nattempt equal '${Nattempt}
     oldline=$(cat input.lmp| grep 'variable Nattempt equal')
     sed -i '/'"$oldline"'/c\'"$newline" input.lmp
-    ${lmp} -in input.lmp
-
+    
     OMP_NUM_THREADS=8 ${lmp} -in input.lmp -sf omp
 
     # create folder for data saving
