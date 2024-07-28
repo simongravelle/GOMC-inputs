@@ -12,12 +12,12 @@ do
     if [[ $mu -gt 3300 ]]
     then
         # expected vapor
-        box0=120
-	Nstep=25000
+        box0=80
+	    Nstep=2500
     else
         # expected liquid
         box0=25
-	Nstep=250000
+	    Nstep=25000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 

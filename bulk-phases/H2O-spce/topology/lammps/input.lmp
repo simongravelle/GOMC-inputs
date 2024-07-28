@@ -35,7 +35,7 @@ write_data H2O-0.data
 
 clear
 
-variable N0 equal 4000
+variable N0 equal 400
 
 units real
 boundary p p p
