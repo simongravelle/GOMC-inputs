@@ -5,3 +5,7 @@
 **/*.lammpstrj
 **/__pycache__
 **/*.pyc
+**/topology/lammps/*.data
+**/topology/gomc/*.pdb
+**/topology/gomc/*.psf
+
