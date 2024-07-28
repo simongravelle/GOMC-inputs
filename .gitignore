@@ -8,4 +8,4 @@
 **/topology/lammps/*.data
 **/topology/gomc/*.pdb
 **/topology/gomc/*.psf
-
+**/lammps-comparison/**.dat
