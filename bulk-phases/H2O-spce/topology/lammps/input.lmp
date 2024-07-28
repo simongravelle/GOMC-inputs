@@ -2,7 +2,7 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable box0 equal 25
+variable box0 equal 80
 variable boxm equal -${box0}/2
 variable boxp equal ${box0}/2
 

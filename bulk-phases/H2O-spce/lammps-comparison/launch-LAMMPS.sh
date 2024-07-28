@@ -13,13 +13,13 @@ do
     then
         # expected vapor
         box0=80
-	Nstep=20000
-	Nattempt=5
+        Nstep=20000
+        Nattempt=5
     else
         # expected liquid
         box0=25
-	Nstep=200000
-	Nattempt=100
+        Nstep=200000
+        Nattempt=100
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 

@@ -14,9 +14,13 @@ do
     then
         # expected vapor
         box0=80
+        Nstep=20000
+        NCoord=1000
     else
         # expected liquid
         box0=25
+        Nstep=200000
+        NCoord=10000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 
@@ -32,6 +36,14 @@ do
         sed -i '/'"$oldline"'/c\'"$newline" input.lmp
         ${lmp} -in input.lmp
     cd ../../
+
+    newline='RunSteps '${Nstep}
+    oldline=$(cat input.gomc| grep 'RunSteps')
+    sed -i '/'"$oldline"'/c\'"$newline" input.gomc
+
+    newline='CoordinatesFreq true '${NCoord}
+    oldline=$(cat input.gomc| grep 'CoordinatesFreq true')
+    sed -i '/'"$oldline"'/c\'"$newline" input.gomc
 
     # Replace the chemical potential value in the input
     newline='ChemPot H2O -'${mu}
@@ -53,12 +65,10 @@ do
 
     GCMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
-    ${GCMC} +p4 input.gomc
+    ${GCMC} +p8 input.gomc
 
     mv output_* ${data_folder}
     mv *.dat ${data_folder}
-
-
 
 done
 
