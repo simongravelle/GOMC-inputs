@@ -2,7 +2,7 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable box0 equal 30
+variable box0 equal 80
 variable boxm equal -${box0}/2
 variable boxp equal ${box0}/2
 
@@ -35,7 +35,7 @@ write_data H2O-0.data
 
 clear
 
-variable N0 equal 2000
+variable N0 equal 4000
 
 units real
 boundary p p p

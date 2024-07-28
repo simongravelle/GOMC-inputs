@@ -81,8 +81,8 @@ PressureCalc    false
 ################################
 # STEPS 
 ################################
-RunSteps        200000  
-EqSteps         10000     
+RunSteps        5000000  
+EqSteps         100000     
 AdjSteps        5000        
 
 ################################
@@ -97,9 +97,9 @@ RegrowthFreq    0.1
 ################################
 # BOX DIMENSION #, X, Y, Z
 ################################
-CellBasisVector1 0 36.0 0.00 0.00
-CellBasisVector2 0 0.00 36.0 0.00
-CellBasisVector3 0 0.00 0.00 36.0
+CellBasisVector1 0 80.0 0.00 0.00
+CellBasisVector2 0 0.00 80.0 0.00
+CellBasisVector3 0 0.00 0.00 80.0
 
 CellBasisVector1 1 80.0 0.00 0.00
 CellBasisVector2 1 0.00 80.0 0.00
@@ -120,7 +120,7 @@ CBMC_Dih     30
 # multiply by Boltzmann = 0.0019872041 kcal / (mol * K)
 # 1000 K <-> 1.987 kcal/mol
 ####################################
-ChemPot H2O -4600
+ChemPot H2O -3400
 
 
 ############################################################################
@@ -135,11 +135,11 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq     true   5000
-RestartFreq         true   5000
-ConsoleFreq         true   5000
-BlockAverageFreq    true   5000
-HistogramFreq       true   5000
+CoordinatesFreq     true   500000
+RestartFreq         true   500000
+ConsoleFreq         true   50000
+BlockAverageFreq    true   50000
+HistogramFreq       true   50000
 
 
 ################################

@@ -6,16 +6,17 @@ set -e
 lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.3/lmp
 
 # Choose the chemical potential
-for mu in 3000 3200 3400 3600 3800 4000 4200 4400 4600
+# 3000 3200
+for mu in 3400 3600 3800 4000 4200 4400 4600
 do
 
     if [[ $mu -gt 3300 ]]
     then
         # expected vapor
-        box0=200
+        box0=80
     else
         # expected liquid
-        box0=30
+        box0=25
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 

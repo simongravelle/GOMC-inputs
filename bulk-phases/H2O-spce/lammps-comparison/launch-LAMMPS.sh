@@ -12,10 +12,12 @@ do
     if [[ $mu -gt 3300 ]]
     then
         # expected vapor
-        box0=200
+        box0=120
+	Nstep=25000
     else
         # expected liquid
-        box0=30
+        box0=25
+	Nstep=250000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 
@@ -27,7 +29,7 @@ do
     # Call LAMMPS
     cd ../topology/lammps
         newline='variable box0 equal '${box0}
-        oldline=$(cat input.lmp| grep 'variable box0 equal ')  
+        oldline=$(cat input.lmp| grep 'variable box0 equal')  
         sed -i '/'"$oldline"'/c\'"$newline" input.lmp
         ${lmp} -in input.lmp
     cd ../../lammps-comparison/
@@ -39,9 +41,13 @@ do
     oldline=$(cat input.lmp| grep 'variable mu_K equal')
     sed -i '/'"$oldline"'/c\'"$newline" input.lmp
 
+    newline='variable Nstep equal '${Nstep}
+    oldline=$(cat input.lmp| grep 'variable Nstep equal')
+    sed -i '/'"$oldline"'/c\'"$newline" input.lmp
+    ${lmp} -in input.lmp
+
     OMP_NUM_THREADS=8 ${lmp} -in input.lmp -sf omp
 
     mv *.dat ${data_folder}
     mv log.lammps ${data_folder}
-
 done
