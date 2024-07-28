@@ -81,8 +81,8 @@ PressureCalc    false
 ################################
 # STEPS 
 ################################
-RunSteps        20000000    
-EqSteps         100000      
+RunSteps        200000  
+EqSteps         10000     
 AdjSteps        5000        
 
 ################################
@@ -120,7 +120,7 @@ CBMC_Dih     30
 # multiply by Boltzmann = 0.0019872041 kcal / (mol * K)
 # 1000 K <-> 1.987 kcal/mol
 ####################################
-ChemPot H2O -3004
+ChemPot H2O -3200
 
 
 ############################################################################
@@ -135,11 +135,11 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq     true   500000
-RestartFreq         true   500000
-ConsoleFreq         true   500000
-BlockAverageFreq    true   500000
-HistogramFreq       true   500000
+CoordinatesFreq     true   5000
+RestartFreq         true   5000
+ConsoleFreq         true   5000
+BlockAverageFreq    true   5000
+HistogramFreq       true   5000
 
 
 ################################
