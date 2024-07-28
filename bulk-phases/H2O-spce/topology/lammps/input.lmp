@@ -24,7 +24,7 @@ labelmap bond 1 O-H
 labelmap angle 1 H-O-H
 
 molecule h2Omol H2O.mol
-create_atoms 0 random 200 87910 NULL mol &
+create_atoms 0 random 20 87910 NULL mol &
     h2Omol 454756 overlap 3.0 maxtry 1000
 
 group H2O type O H

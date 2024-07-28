@@ -6,24 +6,22 @@ set -e
 lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.3/lmp
 
 # Choose the chemical potential
-for mu in  4600 4400 4200 4000 3800 3600 3400 3200 3000
+for mu in 4600 4400 4200 4000 3800 3600 3400 3200 3000
 do
 
     if [[ $mu -gt 3300 ]]
     then
         # expected vapor
         box0=80
-	    Nstep=10000
+	Nstep=20000
+	Nattempt=5
     else
         # expected liquid
         box0=25
-	    Nstep=200000
+	Nstep=200000
+	Nattempt=100
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
-
-    # create folder for data saving
-    data_folder='outputs_mu'${mu}
-    mkdir -p ${data_folder}
 
     # Adjust initial box size
     # Call LAMMPS
@@ -44,10 +42,19 @@ do
     newline='variable Nstep equal '${Nstep}
     oldline=$(cat input.lmp| grep 'variable Nstep equal')
     sed -i '/'"$oldline"'/c\'"$newline" input.lmp
+
+    newline='variable Nattempt equal '${Nattempt}
+    oldline=$(cat input.lmp| grep 'variable Nattempt equal')
+    sed -i '/'"$oldline"'/c\'"$newline" input.lmp
     ${lmp} -in input.lmp
 
     OMP_NUM_THREADS=8 ${lmp} -in input.lmp -sf omp
 
+    # create folder for data saving
+    data_folder='outputs_mu'${mu}
+    mkdir -p ${data_folder}
+
     mv *.dat ${data_folder}
     mv log.lammps ${data_folder}
+
 done

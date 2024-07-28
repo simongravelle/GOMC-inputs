@@ -2,10 +2,11 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable Nstep equal 2500
+variable Nstep equal 20000
 variable mu_K equal -4600
 variable mu_kcal_mol equal ${mu_K}*0.0019872041
 variable tfac equal 5.0/3.0
+variable Nattempt equal 5
 
 units real
 boundary p p p
@@ -31,7 +32,7 @@ thermo 1000
 
 run 2000
 
-fix fgcmc H2O gcmc 100 100 0 0 65899 300 ${mu_kcal_mol} 0.1 &
+fix fgcmc H2O gcmc 100 ${Nattempt} 0 0 65899 300 ${mu_kcal_mol} 0.1 &
     mol h2omol tfac_insert ${tfac} full_energy rigid mynvt
 
 variable oxygen atom "type==1"
