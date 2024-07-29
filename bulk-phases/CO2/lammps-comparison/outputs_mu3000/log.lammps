@@ -1,0 +1,386 @@
+LAMMPS (27 Jun 2024)
+  using 8 OpenMP thread(s) per MPI task
+package omp 0
+using multi-threaded neighbor list subroutines
+# LAMMPS input script by Simon Gravelle
+# For LAMMPS tutorials, see https://lammpstutorials.github.io
+# Last tested using the 27Jun2024 LAMMPS version
+
+variable Nstep equal 150000
+variable mu_K equal -3000
+variable mu_kcal_mol equal ${mu_K}*0.0019872041
+variable mu_kcal_mol equal -3000*0.0019872041
+print "mu equal ${mu_kcal_mol}"
+mu equal -5.9616123
+variable tfac equal 5.0/3.0
+variable Nattempt equal 100
+
+units real
+boundary p p p
+atom_style full
+pair_style lj/cut/coul/long 12
+kspace_style ewald 1.0e-5
+bond_style harmonic
+angle_style harmonic
+pair_modify mix geometric
+special_bonds lj 0.0 0.0 0.0 coul 0.0 0.0 0.0 angle yes
+
+read_data box.data
+Reading data file ...
+  orthogonal box = (-12 -12 -12) to (12 12 12)
+  1 by 1 by 1 MPI processor grid
+  reading atom labelmap ...
+  reading bond labelmap ...
+  reading angle labelmap ...
+  reading atoms ...
+  492 atoms
+  reading velocities ...
+  492 velocities
+  scanning bonds ...
+  1 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  orthogonal box = (-12 -12 -12) to (12 12 12)
+  1 by 1 by 1 MPI processor grid
+  reading bonds ...
+  328 bonds
+  reading angles ...
+  164 angles
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     1 = max # of 1-3 neighbors
+     1 = max # of 1-4 neighbors
+  328 = # of 1-3 neighbors before angle trim
+  328 = # of 1-3 neighbors after angle trim
+     2 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+  read_data CPU = 0.009 seconds
+labelmap atom 1 O 2 C
+labelmap bond 1 C-O
+labelmap angle 1 O-C-O
+
+group CO2 type C O
+492 atoms in group CO2
+include parm.lmp
+# LAMMPS parameter file for H2O SPCE water model
+# For conversion from K to kcal / mol, multiply
+# by Boltzmann = 0.0019872041 kcal / (mol * K)
+
+mass O 15.9994
+mass C 12.0110
+
+pair_coeff O O 0.164858 3.011
+pair_coeff C C 0.05894 2.789
+
+bond_coeff C-O 0.0 1.18 # rigid
+
+angle_coeff O-C-O 0.0 180.0 # rigid
+
+molecule CO2mol CO2.mol
+Read molecule template CO2mol:
+# LAMMPS molecule file for carbondioxide
+  1 molecules
+  0 fragments
+  3 atoms with max type 2
+  2 bonds with max type 1
+  1 angles with max type 1
+  0 dihedrals with max type 0
+  0 impropers with max type 0
+
+fix mynvt CO2 rigid/nvt/small molecule temp 300 300 100 mol CO2mol
+  create bodies CPU = 0.000 seconds
+  164 rigid bodies with 492 atoms
+  1.18 = max distance from body owner to body atom
+thermo 1000
+
+run 2000
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- Type Label Framework: https://doi.org/10.1021/acs.jpcb.3c08419
+
+@Article{Gissinger24,
+ author = {Jacob R. Gissinger, Ilia Nikiforov, Yaser Afshar, Brendon Waters, Moon-ki Choi, Daniel S. Karls, Alexander Stukowski, Wonpil Im, Hendrik Heinz, Axel Kohlmeyer, and Ellad B. Tadmor},
+ title = {Type Label Framework for Bonded Force Fields in LAMMPS},
+ journal = {J. Phys. Chem. B},
+ year =    2024,
+ volume =  128,
+ number =  13,
+ pages =   {3282–-3297}
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Ewald initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.22820762
+  estimated absolute RMS force accuracy = 0.0036730283
+  estimated relative force accuracy = 1.1061215e-05
+  KSpace vectors: actual max1d max3d = 257 5 665
+                  kxmax kymax kzmax  = 5 5 5
+Generated 1 of 1 mixed pair_coeff terms from geometric mixing rule
+Last active /omp style is kspace_style ewald/omp
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 14
+  ghost atom cutoff = 14
+  binsize = 7, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/long/omp, perpetual
+      attributes: half, newton on, omp
+      pair build: half/bin/newton/omp
+      stencil: half/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 27.97 | 27.97 | 27.97 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0             -323.66569      0             -323.66569     -1701.0992    
+      1000   288.28103     -348.9233       0             -114.90427      2.5577009    
+      2000   317.56158     -351.28394      0             -93.495726      98.693848    
+Loop time of 1.6792 on 8 procs for 2000 steps with 492 atoms
+
+Performance: 102.906 ns/day, 0.233 hours/ns, 1191.043 timesteps/s, 585.993 katom-step/s
+800.1% CPU use with 1 MPI tasks x 8 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.45366    | 0.45366    | 0.45366    |   0.0 | 27.02
+Bond    | 0.019582   | 0.019582   | 0.019582   |   0.0 |  1.17
+Kspace  | 0.61719    | 0.61719    | 0.61719    |   0.0 | 36.75
+Neigh   | 0.016194   | 0.016194   | 0.016194   |   0.0 |  0.96
+Comm    | 0.0687     | 0.0687     | 0.0687     |   0.0 |  4.09
+Output  | 7.1106e-05 | 7.1106e-05 | 7.1106e-05 |   0.0 |  0.00
+Modify  | 0.5        | 0.5        | 0.5        |   0.0 | 29.78
+Other   |            | 0.003803   |            |       |  0.23
+
+Nlocal:            492 ave         492 max         492 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           4513 ave        4513 max        4513 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         100292 ave      100292 max      100292 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 100292
+Ave neighs/atom = 203.84553
+Ave special neighs/atom = 2
+Neighbor list builds = 22
+Dangerous builds = 0
+
+fix fgcmc CO2 gcmc 100 ${Nattempt} 0 0 65899 300 ${mu_kcal_mol} 0.1     mol CO2mol tfac_insert ${tfac} full_energy rigid mynvt
+fix fgcmc CO2 gcmc 100 100 0 0 65899 300 ${mu_kcal_mol} 0.1     mol CO2mol tfac_insert ${tfac} full_energy rigid mynvt
+fix fgcmc CO2 gcmc 100 100 0 0 65899 300 -5.9616123 0.1     mol CO2mol tfac_insert ${tfac} full_energy rigid mynvt
+fix fgcmc CO2 gcmc 100 100 0 0 65899 300 -5.9616123 0.1     mol CO2mol tfac_insert 1.66666666666667 full_energy rigid mynvt
+
+variable carbon atom "type==2"
+group carbon dynamic all var carbon
+dynamic group carbon defined
+variable nC equal count(carbon)
+fix myat1 all ave/time 100 1 100 v_nC file number_CO2.dat
+variable density equal v_nC*(2*15.9994+2*12.011)/vol/6.022e23*(1e8)^3
+fix myat2 all ave/time 100 1 100 v_density file density_CO2.dat
+compute press all pressure thermo_temp
+fix myat3 all ave/time 10 100 1000 c_press file pressure_CO2.dat
+thermo_style custom step temp etotal v_nC
+
+run ${Nstep}
+run 150000
+Ewald initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.22820762
+  estimated absolute RMS force accuracy = 0.0036730283
+  estimated relative force accuracy = 1.1061215e-05
+  KSpace vectors: actual max1d max3d = 257 5 665
+                  kxmax kymax kzmax  = 5 5 5
+Generated 1 of 1 mixed pair_coeff terms from geometric mixing rule
+Last active /omp style is kspace_style ewald/omp
+0 atoms in group FixGCMC:gcmc_exclusion_group:fgcmc
+0 atoms in group FixGCMC:rotation_gas_atoms:fgcmc
+WARNING: Neighbor exclusions used with KSpace solver may give inconsistent Coulombic energies (src/neighbor.cpp:658)
+Per MPI rank memory allocation (min/avg/max) = 27.97 | 27.97 | 27.97 Mbytes
+   Step          Temp          TotEng          v_nC     
+      2000   317.56158     -93.495726      164          
+      3000   294.45603     -134.63383      168          
+      4000   325.40046     -168.94657      178          
+      5000   319.22422     -221.7642       186          
+      6000   311.44442     -225.37123      188          
+      7000   315.87592     -240.29802      191          
+      8000   295.98724     -261.91805      192          
+      9000   313.08016     -271.2773       196          
+     10000   307.29175     -270.56299      196          
+     11000   293.78342     -289.82215      198          
+     12000   278.0581      -324.71323      201          
+     13000   317.78207     -306.34718      203          
+     14000   286.4813      -346.78662      205          
+     15000   295.27711     -342.64866      205          
+     16000   342.52554     -310.55384      206          
+     17000   302.88097     -348.06239      207          
+     18000   279.39033     -379.1049       207          
+     19000   280.22502     -382.58566      209          
+     20000   318.20085     -356.91306      209          
+     21000   305.45729     -372.74992      211          
+     22000   314.46459     -384.15579      213          
+     23000   299.13892     -388.53739      214          
+     24000   339.59204     -380.35477      215          
+     25000   333.78792     -383.76471      216          
+     26000   316.92371     -415.20539      217          
+     27000   293.39341     -417.92128      218          
+     28000   301.24481     -429.52681      218          
+     29000   310.87238     -431.79817      218          
+     30000   292.8691      -443.02528      218          
+     31000   305.60118     -414.42745      218          
+     32000   293.60051     -429.81916      219          
+     33000   290.20908     -428.66413      219          
+     34000   299.03112     -426.04309      219          
+     35000   289.80014     -437.05876      220          
+     36000   314.53497     -428.22786      221          
+     37000   325.95468     -426.82421      221          
+     38000   269.33034     -476.67566      221          
+     39000   284.50459     -471.04252      221          
+     40000   325.1595      -428.75696      222          
+     41000   306.39982     -436.7023       222          
+     42000   319.38662     -475.17038      225          
+     43000   304.71154     -480.62069      225          
+     44000   285.58388     -489.21548      226          
+     45000   320.08927     -491.92564      227          
+     46000   307.60512     -485.84695      227          
+     47000   295.00644     -500.05944      227          
+     48000   286.23621     -509.44339      227          
+     49000   305.63135     -487.97536      228          
+     50000   269.56681     -529.14138      228          
+     51000   288.24774     -512.90828      228          
+     52000   317.4827      -494.10547      228          
+     53000   308.97304     -506.23434      228          
+     54000   305.6695      -504.96582      228          
+     55000   289.62173     -521.08476      229          
+     56000   267.96344     -524.66318      229          
+     57000   269.47154     -526.85879      229          
+     58000   290.9551      -514.78124      229          
+     59000   304.56785     -516.34513      230          
+     60000   304.11118     -506.83717      230          
+     61000   319.60251     -505.83043      230          
+     62000   330.59844     -491.43878      230          
+     63000   296.39899     -516.66858      230          
+     64000   307.55978     -515.23768      230          
+     65000   292.44885     -535.80439      230          
+     66000   289.56483     -524.30613      230          
+     67000   308.08928     -487.98598      230          
+     68000   313.31571     -487.07955      229          
+     69000   290.37828     -520.30998      230          
+     70000   318.71552     -500.57871      230          
+     71000   301.67255     -505.78464      230          
+     72000   290.48361     -527.56749      230          
+     73000   274.34771     -554.03114      230          
+     74000   320.1764      -499.84538      230          
+     75000   293.65537     -511.59042      231          
+     76000   308.10404     -507.82371      231          
+     77000   297.32111     -518.91576      231          
+     78000   270.82699     -543.09547      231          
+     79000   303.17724     -533.89712      232          
+     80000   311.01937     -512.6297       232          
+     81000   305.614       -519.40046      232          
+     82000   307.66639     -516.93834      232          
+     83000   307.96035     -521.7371       232          
+     84000   305.43058     -527.02016      232          
+     85000   299.80891     -526.0461       232          
+     86000   292.35388     -518.72132      232          
+     87000   315.16345     -517.57351      232          
+     88000   286.9818      -542.63737      232          
+     89000   298.8854      -532.42829      232          
+     90000   253.31049     -577.97513      232          
+     91000   285.50044     -539.65365      232          
+     92000   305.77272     -530.19034      232          
+     93000   313.86582     -511.04535      232          
+     94000   305.81873     -524.29755      232          
+     95000   310.6001      -523.16747      232          
+     96000   307.42713     -531.87347      232          
+     97000   287.72261     -532.20198      232          
+     98000   306.11001     -545.18642      232          
+     99000   303.1505      -538.69842      232          
+    100000   310.52319     -514.18977      232          
+    101000   296.5292      -538.06233      233          
+    102000   288.87172     -539.60224      233          
+    103000   301.16488     -526.17979      233          
+    104000   298.04308     -553.03729      233          
+    105000   290.59503     -543.15227      233          
+    106000   309.23729     -520.41651      233          
+    107000   317.03724     -518.03678      233          
+    108000   320.26201     -530.10067      233          
+    109000   299.33188     -540.80615      233          
+    110000   280.06282     -566.10596      233          
+    111000   303.51502     -535.79374      233          
+    112000   307.73281     -536.22557      233          
+    113000   306.15568     -546.68569      234          
+    114000   281.77828     -561.1617       234          
+    115000   304.91089     -530.28428      234          
+    116000   310.68011     -547.20852      234          
+    117000   285.42457     -567.60436      234          
+    118000   296.01329     -568.78103      234          
+    119000   300.71739     -551.64604      234          
+    120000   267.66196     -564.76827      234          
+    121000   319.09281     -537.45161      234          
+    122000   291.73743     -558.81556      234          
+    123000   295.04622     -568.53161      234          
+    124000   298.30313     -548.99553      234          
+    125000   291.10375     -547.30257      234          
+    126000   287.77334     -555.81505      234          
+    127000   309.42181     -559.45391      234          
+    128000   297.57667     -558.06529      234          
+    129000   309.62339     -535.05725      234          
+    130000   314.85072     -508.21647      233          
+    131000   299.70209     -537.36947      233          
+    132000   271.30297     -579.05266      233          
+    133000   313.196       -525.92214      233          
+    134000   288.86093     -547.83624      233          
+    135000   278.25776     -550.35184      233          
+    136000   292.21209     -567.01354      234          
+    137000   283.40007     -550.25774      234          
+    138000   312.45247     -535.86512      234          
+    139000   313.38972     -529.52702      234          
+    140000   327.89666     -515.51426      235          
+    141000   276.62785     -564.69         235          
+    142000   322.43562     -536.61705      235          
+    143000   293.56085     -564.85848      235          
+    144000   304.77645     -556.56471      236          
+    145000   320.6681      -563.43166      237          
+    146000   305.68038     -563.94929      238          
+    147000   334.02282     -547.64734      238          
+    148000   316.6215      -564.68672      238          
+    149000   309.96137     -568.18407      238          
+    150000   293.47402     -590.50915      238          
+    151000   308.68827     -581.07395      238          
+    152000   306.61238     -590.04494      238          
+Loop time of 743.013 on 8 procs for 150000 steps with 714 atoms
+
+Performance: 17.442 ns/day, 1.376 hours/ns, 201.881 timesteps/s, 144.143 katom-step/s
+799.6% CPU use with 1 MPI tasks x 8 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 61.678     | 61.678     | 61.678     |   0.0 |  8.30
+Bond    | 1.7668     | 1.7668     | 1.7668     |   0.0 |  0.24
+Kspace  | 52.196     | 52.196     | 52.196     |   0.0 |  7.02
+Neigh   | 5.4813     | 5.4813     | 5.4813     |   0.0 |  0.74
+Comm    | 7.3977     | 7.3977     | 7.3977     |   0.0 |  1.00
+Output  | 0.0037105  | 0.0037105  | 0.0037105  |   0.0 |  0.00
+Modify  | 614.15     | 614.15     | 614.15     |   0.0 | 82.66
+Other   |            | 0.3448     |            |       |  0.05
+
+Nlocal:            714 ave         714 max         714 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           6625 ave        6625 max        6625 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         211805 ave      211805 max      211805 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 211805
+Ave neighs/atom = 296.64566
+Ave special neighs/atom = 2
+Neighbor list builds = 154122
+Dangerous builds = 0
+Total wall time: 0:12:24
