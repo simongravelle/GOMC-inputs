@@ -1,0 +1,164 @@
+########################
+## Init File 
+## 
+## IMPROVEMENTS
+## - Compacts inputs into one line
+## - Suggestion: edit inline with (insert key)
+##
+## To-Do 
+## (make editor + XML version)
+########################
+
+############################################################################
+#  ========-------------------- INPUT --------------------------===========
+############################################################################
+
+#########################
+# enable, step
+#########################
+Restart	 	false   
+
+####################################
+# kind {RESTART, RANDOM, INTSEED}
+####################################
+PRNG		    INTSEED
+Random_Seed     800
+
+####################################
+# FORCE FIELD
+####################################
+ParaTypeEXOTIC	 true
+# ParaTypeEXOTIC	 off
+# ParaTypeCHARMM	 on
+Parameters     	 parameters.inp
+
+####################################
+# INPUT PDB FILES
+####################################
+Coordinates 0   topology/gomc/box.pdb
+Coordinates 1  	topology/gomc/reservoir.pdb
+
+####################################
+# INPUT PSF FILES
+####################################
+Structure 0     topology/gomc/box.psf
+Structure 1     topology/gomc/reservoir.psf
+
+
+
+############################################################################
+#  =======--------------------- SYSTEM --------------------------===========
+############################################################################
+
+##################################
+# GEMC TYPE (DEFULT IS NVT_GEMC)  
+##################################
+
+
+#############################
+# SIMULATION CONDITION   
+#############################
+Temperature     300.0
+Potential       VDW 
+LRC		        true
+Rcut		    12
+RcutLow		    1.0
+Exclude 	    1-4 
+RcutCoulomb     0  12
+
+#############################
+# ELECTROSTATIC   
+#############################
+ElectroStatic   true
+Ewald		    true
+CachedFourier   false
+Tolerance       1e-5
+1-4scaling	    0.0
+
+###############################                                                
+# PRESSURE CALCULATION                                                         
+################################                                               
+PressureCalc    false
+
+################################
+# STEPS 
+################################
+RunSteps 2500000
+EqSteps         10000   
+AdjSteps        5000        
+
+################################
+# MOVE FREQUENCY              
+################################
+DisFreq         0.2  
+RotFreq         0.1   
+SwapFreq        0.6
+RegrowthFreq    0.1
+
+
+################################
+# BOX DIMENSION #, X, Y, Z
+################################
+CellBasisVector1 0 25.0 0.00 0.00
+CellBasisVector2 0 0.00 25.0 0.00
+CellBasisVector3 0 0.00 0.00 25.0
+
+CellBasisVector1 1 80.0 0.00 0.00
+CellBasisVector2 1 0.00 80.0 0.00
+CellBasisVector3 1 0.00 0.00 80.0
+
+
+##############################
+# CBMC TRIALS
+##############################
+CBMC_First   10     
+CBMC_Nth     4
+CBMC_Ang     100
+CBMC_Dih     30
+
+####################################
+#          Mol. Name     Chem. Pot. (or Fug.)
+# units: degrees Kelvin
+# multiply by Boltzmann = 0.0019872041 kcal / (mol * K)
+# 1000 K <-> 1.987 kcal/mol
+####################################
+Fugacity H2O 0.6855
+
+
+############################################################################
+#  =======-------------------- OUTPUT --------------------------===========
+############################################################################
+
+##########################
+# statistics filename add
+##########################
+OutputName output
+
+#####################################
+# enable, frequency           
+#####################################
+CoordinatesFreq true 10000
+RestartFreq         true   100000
+ConsoleFreq         true   100000
+BlockAverageFreq    true   10000
+HistogramFreq       true   10000
+
+
+################################
+# OutHistSettings
+################################
+DistName	        dis
+HistName	        his
+RunNumber	        2
+RunLetter	        a
+SampleFreq	        200
+
+##################################
+# enable: blk avg., fluct.
+##################################
+OutEnergy         true    true   
+OutPressure       true    true   
+OutMolNum         true    true   
+OutDensity        true    true
+
+
