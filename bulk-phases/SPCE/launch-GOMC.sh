@@ -8,12 +8,12 @@ LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
 # Choose the chemical potential
-for mu in {4600..5000..200}
+for mu in {4000..6000..400}
 do
 
     Nstep=2500000
     NCoord=10000
-    if [[ $mu -gt 4700 ]]
+    if [[ $mu -gt 6200 ]]
     then
         # expected vapor
         box0=50
@@ -23,7 +23,7 @@ do
         # expected liquid
         box0=25
         Nb0=1000
-        Nb1=2000
+        Nb1=3000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 
