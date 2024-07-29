@@ -7,18 +7,18 @@ def add_names(u, type_to_name):
     u.add_TopologyAttr("names", names)
     return u
 
-def PDB_writer(filename, u, type_to_name = None):
+def PDB_writer(filename, u, type_to_name = None, resname = "H2O"):
     if type_to_name is not None:
         u = add_names(u, type_to_name)
-    u.add_TopologyAttr("resnames", u.residues.n_residues * ["H2O"])
+    u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
     u.atoms.write(filename)
 
 
-def PSF_writer(filename, u, type_to_name = None):
+def PSF_writer(filename, u, type_to_name = None, resname = "H2O"):
 
     if type_to_name is not None:
         u = add_names(u, type_to_name)
-    u.add_TopologyAttr("resnames", u.residues.n_residues * ["H2O"])
+    u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
 
     # https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html
     # atom ID, segment name, residue ID, residue name, atom name, atom type, charge, mass, and an unused 0.

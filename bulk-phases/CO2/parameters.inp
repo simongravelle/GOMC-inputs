@@ -18,7 +18,7 @@ BONDS
 ! Kb (kcal/mol) = Kb (K) * Boltz. const.; (9999999999 if no stretching)
 !
 !atom type     Kb              b0        description
-OC   CO      9999999999999    1.1800
+O   C      9999999999999    1.1800
 
 
 ANGLES
@@ -35,7 +35,7 @@ ANGLES
 ! Ktheta (kcal/mol) = Ktheta (K) * Boltz. const.
 !
 !atom types         Ktheta       Theta0   Kub(?)  S0(?)
-OC   CO   OC      9999999999999    180.000
+O   C   O      9999999999999    180.000
 
 DIHEDRALS
 !
@@ -60,5 +60,3 @@ NONBONDED_MIE
 !atom   eps          sig_ij     n    description
 O        82.96       3.011     12   ! 
 C        29.66       2.789     12   !
-
-

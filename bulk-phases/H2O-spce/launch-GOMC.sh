@@ -6,7 +6,7 @@ set -e
 lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.3/lmp
 
 # Choose the chemical potential
-for mu in 3800 4200 4600 5000 5400 5800 6200
+for mu in 4600 5000 5400 5800
 do
 
     Nstep=5000000
@@ -14,7 +14,7 @@ do
     if [[ $mu -gt 3600 ]]
     then
         # expected vapor
-        box0=80
+        box0=140
 	Nb0=3000
         Nb1=200
     else

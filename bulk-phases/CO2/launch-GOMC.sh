@@ -3,23 +3,23 @@
 set -e
 
 # link to LAMMPS
-lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.3/lmp
+lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 
 # Choose the chemical potential
-for mu in 3000 3400 3800 4200 4600 5000 5400 5800 6200
+for mu in  {3000..5000..400}
 do
 
-    Nstep=5000000
+    Nstep=500000
     NCoord=100000
-    if [[ $mu -gt 3600 ]]
+    if [[ $mu -gt 3900 ]]
     then
         # expected vapor
-        box0=80
-        Nb0=3000
-        Nb1=200
+        box0=35
+        Nb0=50
+        Nb1=2000
     else
         # expected liquid
-        box0=25
+        box0=24
         Nb0=1000
         Nb1=2000
     fi

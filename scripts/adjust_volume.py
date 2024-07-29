@@ -1,7 +1,7 @@
 import MDAnalysis as mda
 
-topology_file_0 = "./topology/lammps/H2O-0.data"
-topology_file_1 = "./topology/lammps/H2O-1.data"
+topology_file_0 = "./topology/lammps/box.data"
+topology_file_1 = "./topology/lammps/reservoir.data"
 
 u_0 = mda.Universe(topology_file_0)
 u_1 = mda.Universe(topology_file_1)
