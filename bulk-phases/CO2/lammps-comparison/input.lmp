@@ -2,12 +2,12 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable Nstep equal 150000
-variable mu_K equal -5000
+variable Nstep equal 1000000
+variable mu_K equal -3000
 variable mu_kcal_mol equal ${mu_K}*0.0019872041
 print "mu equal ${mu_kcal_mol}"
 variable tfac equal 5.0/3.0
-variable Nattempt equal 10
+variable Nattempt equal 100
 
 units real
 boundary p p p
@@ -40,7 +40,7 @@ variable carbon atom "type==2"
 group carbon dynamic all var carbon
 variable nC equal count(carbon)
 fix myat1 all ave/time 100 1 100 v_nC file number_CO2.dat
-variable density equal v_nC*(2*15.9994+2*12.011)/vol/6.022e23*(1e8)^3
+variable density equal v_nC*(2*15.9994+12.011)/vol/6.022e23*(1e8)^3
 fix myat2 all ave/time 100 1 100 v_density file density_CO2.dat
 compute press all pressure thermo_temp
 fix myat3 all ave/time 10 100 1000 c_press file pressure_CO2.dat

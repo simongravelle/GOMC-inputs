@@ -3,22 +3,22 @@
 set -e
 
 # link to LAMMPS
-lmp=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
+LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 
 # Choose the chemical potential
-for mu in {3000..5000..400} 
+for mu in {2800..5000..200}
 do
 
-    Nstep=150000
+    Nstep=1000000
     if [[ $mu -gt 3900 ]]
     then
         # expected vapor
-        box0=35
+        box0=50
         Nattempt=10
         Nb0=50
     else
         # expected liquid
-        box0=24
+        box0=25
         Nattempt=100
         Nb0=1000
     fi
@@ -33,7 +33,7 @@ do
         newline='variable box0 equal '${box0}
         oldline=$(cat input.lmp| grep 'variable box0 equal')  
         sed -i '/'"$oldline"'/c\'"$newline" input.lmp
-        ${lmp} -in input.lmp
+        ${LMP} -in input.lmp
     cd ../../lammps-comparison/
 
     cp ../topology/lammps/box.data .
@@ -53,7 +53,7 @@ do
     oldline=$(cat input.lmp| grep 'variable Nattempt equal')
     sed -i '/'"$oldline"'/c\'"$newline" input.lmp
     
-    OMP_NUM_THREADS=8 ${lmp} -in input.lmp -sf omp
+    OMP_NUM_THREADS=8 ${LMP} -in input.lmp -sf omp
 
     # create folder for data saving
     data_folder='outputs_mu'${mu}

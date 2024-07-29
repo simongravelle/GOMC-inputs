@@ -1,0 +1,32 @@
+# LAMMPS molecule file for carbondioxide 
+
+3 atoms
+2 bonds
+1 angles
+
+Coords
+
+1 -1.18 0.0 0.0 
+2  0.00 0.0 0.0 
+3  1.18 0.0 0.0 
+
+Types
+
+1 O
+2 C 
+3 O 
+
+Charges
+
+1 -0.288
+2 0.576
+3 -0.288
+
+Bonds
+
+1 C-O 1 2 
+2 C-O 2 3 
+
+Angles
+
+1 O-C-O 1 2 3
