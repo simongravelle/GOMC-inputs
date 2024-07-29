@@ -11,14 +11,16 @@ do
 
     Nstep=5000000
     NCoord=100000
-    if [[ $mu -gt 10000 ]]
+    if [[ $mu -gt 3600 ]]
     then
         # expected vapor
         box0=80
+	Nb0=3000
         Nb1=200
     else
         # expected liquid
         box0=25
+	Nb0=1000
         Nb1=2000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
@@ -31,6 +33,9 @@ do
         sed -i '/'"$oldline"'/c\'"$newline" input.lmp
         newline='variable Nb1 equal '${Nb1}
         oldline=$(cat input.lmp| grep 'variable Nb1 equal ')  
+        sed -i '/'"$oldline"'/c\'"$newline" input.lmp
+        newline='variable Nb0 equal '${Nb0}
+        oldline=$(cat input.lmp| grep 'variable Nb0 equal ')
         sed -i '/'"$oldline"'/c\'"$newline" input.lmp
         ${lmp} -in input.lmp
     cd ../../
