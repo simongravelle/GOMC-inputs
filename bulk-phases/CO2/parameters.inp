@@ -1,0 +1,64 @@
+* Parameter file for GOMC
+*
+* SEE:
+* Ravichandar Babarao, Zhongqiao Hu, and Jianwen Jiang
+* "Storage and Separation of CO2 and CH4 in Silicalite, C168 Schwarzite, and
+*  IRMOF-1:  A Comparative Study from Monte Carlo Simulation",
+*
+* DOI: 10.1021/la062289p
+*
+
+BONDS
+!
+!V(bond) = Kb(b - b0)**2
+!
+!Kb: kcal/mole/A**2
+!b0: A
+!
+! Kb (kcal/mol) = Kb (K) * Boltz. const.; (9999999999 if no stretching)
+!
+!atom type     Kb              b0        description
+OC   CO      9999999999999    1.1800
+
+
+ANGLES
+!
+!V(angle) = Ktheta(Theta - Theta0)**2
+!
+!V(Urey-Bradley) = Kub(S - S0)**2
+!
+!Ktheta: kcal/mole/rad**2
+!Theta0: degrees
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+! Ktheta (kcal/mol) = Ktheta (K) * Boltz. const.
+!
+!atom types         Ktheta       Theta0   Kub(?)  S0(?)
+OC   CO   OC      9999999999999    180.000
+
+DIHEDRALS
+!
+!V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+!
+!Kchi: kcal/mole
+!n: multiplicity
+!delta: degrees
+!
+! Kchi (kcal/mol) = Kchi (K) * Boltz. const.
+! Boltzmann = 0.0019872041 kcal / (mol * K)
+!atom types           Kchi        n    delta              description
+
+NONBONDED_MIE
+!
+!V(mie) = 4*eps*((sig_ij/r_ij)^n-(sig_ij/r_ij)^6)
+!
+! The energy in the exotic file are expressed in Kelvin (K),
+! as this is the standard convention in the literature.
+! For conversion from K to kcal / mol, multiply
+! by Boltzmann = 0.0019872041 kcal / (mol * K)
+!atom   eps          sig_ij     n    description
+O        82.96       3.011     12   ! 
+C        29.66       2.789     12   !
+
+
