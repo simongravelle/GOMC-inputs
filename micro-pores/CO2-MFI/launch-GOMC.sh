@@ -11,8 +11,8 @@ GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 for mu in {2800..5000..200}
 do
 
-    Nstep=2500000
-    NCoord=50000
+    Nstep=1000000
+    NCoord=10000
     Nb0=0
     Nb1=500
   
@@ -62,19 +62,6 @@ do
 
     ${GOMC} +p8 input.gomc > log.gomc
 
-    stop
-
-done
-
-stop
-
-
-
-
-
-
-
-
     # create folder for data saving
     data_folder='outputs_mu'${mu}
     mkdir -p ${data_folder}
@@ -83,8 +70,8 @@ stop
     mv *.dat ${data_folder}
     mv log.gomc ${data_folder}
 
-# done
+    cp ../../scripts/analysis.py .
+    python3 analysis.py
+    rm analysis.py
+done
 
-cp ../../scripts/analysis.py .
-python3 analysis.py
-rm analysis.py

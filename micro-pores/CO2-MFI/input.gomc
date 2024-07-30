@@ -84,7 +84,7 @@ PressureCalc    false
 ################################
 # STEPS 
 ################################
-RunSteps 2500000
+RunSteps 1000000
 EqSteps         10000   
 AdjSteps        5000        
 
@@ -138,7 +138,7 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq true 50000
+CoordinatesFreq true 10000
 RestartFreq         true   100000
 ConsoleFreq         true   100000
 BlockAverageFreq    true   10000
