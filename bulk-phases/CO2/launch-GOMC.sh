@@ -16,7 +16,7 @@ do
 
     Nstep=2500000
     NCoord=50000
-    Nb0=20
+    Nb0=0
     Nb1=2000
     if [[ $mu -gt 4100 ]]
     then

@@ -32,13 +32,19 @@ if os.path.exists(folder) is False:
     os.mkdir(folder)
 
 # Import universe
-u = mda.Universe("lammps/box.data")
-u = add_names(u, type_to_name)
-u = add_residue(u, type_to_resname)
-# Write PDB
-PDB_writer(folder+"box.pdb", u, exchanged_molecule=False)
-# Write PSF
-PSF_writer(folder+"box.psf", u)
+try:
+    u = mda.Universe("lammps/box.data")
+    u = add_names(u, type_to_name)
+    u = add_residue(u, type_to_resname)
+    # Write PDB
+    PDB_writer(folder+"box.pdb", u, exchanged_molecule=False)
+    # Write PSF
+    PSF_writer(folder+"box.psf", u)
+except:
+    # Write PDB
+    PDB_writer(folder+"box.pdb", u=None, exchanged_molecule=False, empty_box=True)
+    # Write PSF
+    PSF_writer(folder+"box.psf", u=None, empty_box=True)
 
 # Import universe
 u = mda.Universe("lammps/reservoir.data")
