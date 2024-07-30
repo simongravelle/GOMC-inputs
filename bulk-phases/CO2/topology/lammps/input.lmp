@@ -5,7 +5,7 @@
 variable box0 equal 25
 variable boxm equal -${box0}/2
 variable boxp equal ${box0}/2
-variable Nb0 equal 50
+variable Nb0 equal 1000
 
 units real
 boundary p p p

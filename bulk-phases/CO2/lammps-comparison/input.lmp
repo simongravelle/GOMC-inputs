@@ -39,9 +39,9 @@ fix fgcmc CO2 gcmc 100 ${Nattempt} 0 0 25899 300 ${mu_kcal_mol} 0.1 &
 variable carbon atom "type==2"
 group carbon dynamic all var carbon
 variable nC equal count(carbon)
-fix myat1 all ave/time 100 1 100 v_nC file number_CO2.dat
+fix myat1 all ave/time 10 10 1000 v_nC file number_CO2.dat
 variable density equal v_nC*(2*15.9994+12.011)/vol/6.022e23*(1e8)^3
-fix myat2 all ave/time 100 1 100 v_density file density_CO2.dat
+fix myat2 all ave/time 10 10 1000 v_density file density_CO2.dat
 compute press all pressure thermo_temp
 fix myat3 all ave/time 10 100 1000 c_press file pressure_CO2.dat
 thermo_style custom step temp etotal v_nC
