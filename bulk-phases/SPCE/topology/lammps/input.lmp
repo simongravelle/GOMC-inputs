@@ -36,7 +36,7 @@ write_data box.data
 
 clear
 
-variable Nb1 equal 2000
+variable Nb1 equal 3000
 
 units real
 boundary p p p
