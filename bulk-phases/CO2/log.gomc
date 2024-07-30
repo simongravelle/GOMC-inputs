@@ -1,5 +1,5 @@
 Info: GOMC Version 2.75
-Info: Start Time: Tue Jul 30 19:33:09 2024
+Info: Start Time: Tue Jul 30 21:01:18 2024
 Info: Host Name: tower
 CPU information:
 Info: Total number of CPUs: 64
@@ -10,10 +10,10 @@ Info: Release: 6.5.0-42-generic
 Info: Version: #42-Ubuntu SMP PREEMPT_DYNAMIC Mon Jun 10 09:28:55 UTC 2024
 Info: Kernel Architecture: x86_64
 Info: Total Ram: 128535.8MB
-Info: Used Ram: 112851.5MB
-Info: Working in the current directory: /home/simon/Git/GOMC/GOMC-inputs/bulk-phases/SPCE
+Info: Used Ram: 113408.4MB
+Info: Working in the current directory: /home/simon/Git/GOMC/GOMC-inputs/bulk-phases/CO2
 Info: GOMC COMPILED TO RUN GRAND CANONICAL ENSEMBLE.
-Info: Number of threads                  8 
+Info: Number of threads                  2 
 Info: Compiled with OpenMP Version       4.5
 
 Reading Input File:                      input.gomc
@@ -30,7 +30,7 @@ Info: Ewald Summation                    Active
 Info: Cache Ewald Fourier                Inactive 
 Info: Ewald Summation Tolerance          1.000E-05 
 Info: Pressure calculation               Inactive 
-Info: Total number of steps              25000 
+Info: Total number of steps              2500000 
 Info: Number of equilibration steps      10000 
 Info: Move adjustment frequency          5000 
 Info: Displacement move frequency        0.2000 
@@ -41,9 +41,9 @@ Info: CBMC First atom trials             10
 Info: CBMC Secondary atom trials         4    
 Info: CBMC Angle trials                  100  
 Info: CBMC Dihedral trials               30   
-Info: Fugacity                           H2O    5.0655 bar
+Info: Fugacity                           CO2    1044.2689 bar
 Info: Output name                        output 
-Info: Coordinate frequency               100 
+Info: Coordinate frequency               50000 
 Info: Restart frequency                  100000 
 Info: Console output frequency           100000 
 Info: Average output frequency           10000 
@@ -67,7 +67,6 @@ Reading from EXOTIC-Style parameter file:  	parameters.inp
 Reading BONDS parameters.
 Reading ANGLES parameters.
 Reading DIHEDRALS parameters.
-Reading DIHEDRALS parameters.
 Reading NONBONDED_MIE parameters.
 Reading from box 0 PDB coordinate file:  	topology/gomc/box.pdb
 Finished reading:                       	topology/gomc/box.pdb
@@ -76,11 +75,11 @@ Finished reading:                       	topology/gomc/reservoir.pdb
 Random number seed: 800
 
 Molecules in PSF:
-Molecule Kind: H2O
+Molecule Kind: CO2
 Idx	name	type	charge	mass
-0	H	H	0.4238	1.0078
-1	O	O	-0.8476	15.9994
-2	H	H	0.4238	1.0078
+0	O	O	-0.2880	15.9994
+1	C	C	0.5760	12.0110
+2	O	O	-0.2880	15.9994
 
 Bonds:
 [1 2] [0 1] 
@@ -94,27 +93,27 @@ Impropers:
 
 Bonds parameter:
 Atom Types                             Kb(K)           b0(A) 
-O	H	                         FIX           1.0000 
-H	O	                         FIX           1.0000 
+C	O	                         FIX           1.1800 
+O	C	                         FIX           1.1800 
 
 Angles parameter:
 Atom Types                         Ktheta(K)         theta0(degree) 
-H	O	H	                 FIX         109.4700 
+O	C	O	                 FIX         180.0000 
 
 Dihedrals parameter:
 Atom Types                           Kchi(K)    n    delta(degree) 
 
 NonBonded 1-4 parameters:
 Type1  Type2             Epsilon(K)    Sigma(A)       N 
-H      H                     0.0000      0.0000   12.00 
-H      O                     0.0000      1.5830   12.00 
-O      O                    78.1770      3.1660   12.00 
+O      O                    82.9600      3.0110   12.00 
+O      C                    49.6044      2.9000   12.00 
+C      C                    29.6600      2.7890   12.00 
 
 NonBonded parameters:
 Type1  Type2             Epsilon(K)    Sigma(A)       N 
-H      H                     0.0000      0.0000   12.00 
-H      O                     0.0000      1.5830   12.00 
-O      O                    78.1770      3.1660   12.00 
+O      O                    82.9600      3.0110   12.00 
+O      C                    49.6044      2.9000   12.00 
+C      C                    29.6600      2.7890   12.00 
 
 Info: Box  0:  Periodic Cell Basis 1     25.000   0.000   0.000 
 Info: Box  0:  Periodic Cell Basis 2      0.000  25.000   0.000 
@@ -124,11 +123,11 @@ Info: Box  1:  Periodic Cell Basis 1     80.000   0.000   0.000
 Info: Box  1:  Periodic Cell Basis 2      0.000  80.000   0.000 
 Info: Box  1:  Periodic Cell Basis 3      0.000   0.000  80.000 
 
-Minimum coordinates in box 0: x =  -12.384, y =  -12.242, z =  -12.478
-Maximum coordinates in box 0: x =   12.211, y =   12.322, z =   12.472
+Minimum coordinates in box 0: x =  -11.771, y =  -12.381, z =  -12.274
+Maximum coordinates in box 0: x =   12.271, y =   12.187, z =   12.486
 Wrapping molecules inside the simulation box 0:
-Minimum coordinates in box 1: x =  -39.557, y =  -39.786, z =  -39.983
-Maximum coordinates in box 1: x =   39.763, y =   39.942, z =   39.906
+Minimum coordinates in box 1: x =  -39.989, y =  -39.939, z =  -39.978
+Maximum coordinates in box 1: x =   39.993, y =   39.914, z =   40.000
 Wrapping molecules inside the simulation box 1:
 Box: 0, RecipVectors:    931, kmax: 8
 
@@ -137,15 +136,15 @@ Box: 0, RecipVectors:    931, kmax: 8
 
 ETITLE:     STEP           TOTAL        INTRA(B)       INTRA(NB)       INTER(LJ)             LRC     TOTAL_ELECT            REAL           RECIP            SELF            CORR
 
-ENER_0:        0      1.7906e+03      0.0000e+00      0.0000e+00     -5.8699e+01     -2.4426e+00      1.8517e+03      1.3942e+03      4.0346e+03     -2.8727e+05      2.8370e+05
+ENER_0:        0     -5.0541e+02      0.0000e+00      0.0000e+00     -5.6274e+02     -1.1767e+01      6.9092e+01      5.6049e+01      5.9074e+02     -1.3267e+05      1.3209e+05
 
 ENER_1:        0      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
 
 STITLE:     STEP        TOTALMOL     TOT_DENSITY
 
-STAT_0:        0              10      1.9145e+01
+STAT_0:        0              10      4.6771e+01
 
-STAT_1:        0             100      5.8427e+00
+STAT_1:        0            2000      2.8547e+02
 
 ################################################################################
 ############################# STARTING SIMULATION ##############################

@@ -2,8 +2,8 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
-variable Nstep equal 1000000
-variable mu_K equal -4000
+variable Nstep equal 2500000
+variable mu_K equal -2800
 variable mu_kcal_mol equal ${mu_K}*0.0019872041
 print "mu equal ${mu_kcal_mol}"
 variable tfac equal 5.0/3.0

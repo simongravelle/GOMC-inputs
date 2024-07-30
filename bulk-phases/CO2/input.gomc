@@ -137,7 +137,7 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq true 10000
+CoordinatesFreq true 50000
 RestartFreq         true   100000
 ConsoleFreq         true   100000
 BlockAverageFreq    true   10000

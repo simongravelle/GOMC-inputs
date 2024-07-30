@@ -84,7 +84,7 @@ PressureCalc    false
 ################################
 # STEPS 
 ################################
-RunSteps 1000000
+RunSteps 2500000
 EqSteps         10000   
 AdjSteps        5000        
 
@@ -123,7 +123,7 @@ CBMC_Dih     30
 # multiply by Boltzmann = 0.0019872041 kcal / (mol * K)
 # 1000 K <-> 1.987 kcal/mol
 ####################################
-Fugacity CO2 1044.2689
+Fugacity CO2 37.2532
 Fugacity MFI 0.0
 
 ############################################################################

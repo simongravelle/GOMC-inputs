@@ -11,7 +11,7 @@ GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 for mu in {2800..5000..200}
 do
 
-    Nstep=1000000
+    Nstep=2500000
     NCoord=10000
     Nb0=0
     Nb1=500
