@@ -13,19 +13,17 @@ do
 
     Nstep=2500000
     NCoord=10000
-    if [[ $mu -gt 3900 ]]
+    Nb0=50
+    Nb1=2000
+    if [[ $mu -gt 4100 ]]
     then
         # expected vapor
         box0=50
-        Nb0=50
-        Nb1=2000
     else
         # expected liquid
         box0=25
-        Nb0=1000
-        Nb1=2000
     fi
-    echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
+    echo "Chemical potential = -"${mu}" K"
 
     # Adjust initial box size
     # Call LAMMPS
@@ -43,7 +41,6 @@ do
     cd ../../
 
     # Two possibilities: impose the chemical potential directly, or impose the pressure
-
     # estimate pressure and replace in the input
     python3 pressure_from_chemical_potential.py "$mu"
     # Replace the chemical potential value in the input
@@ -82,8 +79,8 @@ do
     mv *.dat ${data_folder}
     mv log.gomc ${data_folder}
 
-done
+    cp ../../scripts/analysis.py .
+    python3 analysis.py
+    rm analysis.py
 
-cp ../../scripts/analysis.py .
-python3 analysis.py
-rm analysis.py
+done
