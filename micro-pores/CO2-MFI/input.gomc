@@ -124,8 +124,8 @@ CBMC_Dih     30
 # 1000 K <-> 1.987 kcal/mol
 ####################################
 Fugacity CO2 1044.2689
-Fugacity Si 0.0
 Fugacity O 0.0
+Fugacity Si 0.0
 
 ############################################################################
 #  =======-------------------- OUTPUT --------------------------===========
@@ -151,7 +151,7 @@ HistogramFreq       true   10000
 ################################
 DistName	        dis
 HistName	        his
-RunNumber	        2
+RunNumber	        1
 RunLetter	        a
 SampleFreq	        200
 

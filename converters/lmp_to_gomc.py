@@ -1,5 +1,13 @@
 import numpy as np
 
+def detect_label_map():
+    input_file = open("lammps/input.lmp", "r")
+    for line in input_file:
+        if "labelmap atom" in line:
+            maps = line[:-1].split("labelmap atom ")[1].split(" ")
+            type_to_name = [maps[i:i+2] for i in range(0,len(maps),2)]
+    return type_to_name
+
 def add_names(u, type_to_name):
     names = []
     for type in u.atoms.types:
@@ -19,28 +27,32 @@ def add_residue(u, type_to_resname):
                 if name == converter[0]:
                     this_residue.append(converter[1])
         this_residue = np.unique(this_residue)
+        assert len(this_residue) == 1, """ERROR, inconsistent number of res"""
         resnames.append(this_residue[0])
     u.add_TopologyAttr("resnames", resnames)
     return u
 
-def PDB_writer(filename, u, type_to_name = None, resname = None, type_to_resname = None):
-    if type_to_name is not None:
-        u = add_names(u, type_to_name)
-    if resname is not None:
-        u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
-    else:
-        u = add_residue(u, type_to_resname)
+def PDB_writer(filename, u, exchanged_molecule=True):
     u.atoms.write(filename)
+    if exchanged_molecule:
+        file = open(filename, "r")
+        all_lines = []
+        for line in file:
+            if line[55:67] == " 1.00  0.00 ":
+                line = line.replace(" 1.00  0.00 ", " 0.00  1.00 ")
+            all_lines.append(line)
+        file.close()
+        file = open(filename, "w")
+        for line in all_lines:
+            file.write(line)
+        file.close() 
 
-def PSF_writer(filename, u, type_to_name = None, resname = None, type_to_resname = None):
 
-    if type_to_name is not None:
-        u = add_names(u, type_to_name)
-    if resname is not None:
-        u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
-    else:
-        u = add_residue(u, type_to_resname)
 
+
+
+
+def PSF_writer(filename, u):
     # https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html
     # atom ID, segment name, residue ID, residue name, atom name, atom type, charge, mass, and an unused 0.
     atoms = []
@@ -49,15 +61,16 @@ def PSF_writer(filename, u, type_to_name = None, resname = None, type_to_resname
         resname = atom.resname
         resid = atom.resid
         name = atom.name
+        # type = atom.type
         mass = atom.mass
         charge = atom.charge
-        atoms.append([id, resname, resid, resname, name, name, charge, mass, 0])
+        atoms.append([id, "X", resid, resname, name, name, charge, mass, 0])
     ncolumns = 9
     rowformat = '{:8} {:5} {:5} {:5} {:5} {:5} {:10} {:10} {:5}'
 
     fid = open(filename,"w")
-    fid.write("PSF\n")
-    fid.write("2 !NTITLE\n")
+    fid.write("PSF\n\n")
+    fid.write("0 !NTITLE\n\n")
     fid.write(str(u.atoms.n_atoms)+" !NATOM\n")
     fid.write("\n".join(rowformat.format(*row) for row in atoms))
 
