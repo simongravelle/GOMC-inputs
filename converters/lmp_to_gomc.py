@@ -1,3 +1,5 @@
+import numpy as np
+
 def add_names(u, type_to_name):
     names = []
     for type in u.atoms.types:
@@ -7,18 +9,37 @@ def add_names(u, type_to_name):
     u.add_TopologyAttr("names", names)
     return u
 
-def PDB_writer(filename, u, type_to_name = None, resname = "H2O"):
+def add_residue(u, type_to_resname):
+    resnames = []
+    for res in u.residues:
+        this_residue = []
+        for atom in res.atoms:
+            name = atom.name
+            for converter in type_to_resname:
+                if name == converter[0]:
+                    this_residue.append(converter[1])
+        this_residue = np.unique(this_residue)
+        resnames.append(this_residue[0])
+    u.add_TopologyAttr("resnames", resnames)
+    return u
+
+def PDB_writer(filename, u, type_to_name = None, resname = None, type_to_resname = None):
     if type_to_name is not None:
         u = add_names(u, type_to_name)
-    u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
+    if resname is not None:
+        u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
+    else:
+        u = add_residue(u, type_to_resname)
     u.atoms.write(filename)
 
-
-def PSF_writer(filename, u, type_to_name = None, resname = "H2O"):
+def PSF_writer(filename, u, type_to_name = None, resname = None, type_to_resname = None):
 
     if type_to_name is not None:
         u = add_names(u, type_to_name)
-    u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
+    if resname is not None:
+        u.add_TopologyAttr("resnames", u.residues.n_residues * [resname])
+    else:
+        u = add_residue(u, type_to_resname)
 
     # https://www.ks.uiuc.edu/Training/Tutorials/namd/namd-tutorial-unix-html/node23.html
     # atom ID, segment name, residue ID, residue name, atom name, atom type, charge, mass, and an unused 0.
@@ -53,6 +74,9 @@ def PSF_writer(filename, u, type_to_name = None, resname = "H2O"):
         bonds += [""]*(ncolumns-len(bonds)%ncolumns) # make list multiple of ncolumns
         bonds = [bonds[i:i+ncolumns] for i in range(0,len(bonds),ncolumns)] # reshape in rows
         fid.write("\n".join(rowformat.format(*row) for row in bonds))
+    else:
+        fid.write("\n\n")
+        fid.write("0 !NBOND: bonds  \n")
 
     if len(u.angles)  > 0:
         fid.write("\n\n")
@@ -68,6 +92,9 @@ def PSF_writer(filename, u, type_to_name = None, resname = "H2O"):
         angles += [""]*(ncolumns-len(angles)%ncolumns) # make list multiple of ncolumns
         angles = [angles[i:i+ncolumns] for i in range(0,len(angles),ncolumns)] # reshape in rows
         fid.write("\n".join(rowformat.format(*row) for row in angles))
+    else:
+        fid.write("\n\n")
+        fid.write("0 !NTHETA: angles  \n")
 
     fid.write("\n\n")
     fid.write("0 !NPHI: dihedrals  \n")

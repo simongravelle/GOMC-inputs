@@ -1,0 +1,18 @@
+# LAMMPS parameter file for H2O SPCE water model
+# For conversion from K to kcal / mol, multiply
+# by Boltzmann = 0.0019872041 kcal / (mol * K)
+
+mass O 15.9994
+mass Si 28.0855
+mass OC 15.9994
+mass CO 12.0110
+
+pair_coeff O O 0.25478 2.708
+pair_coeff Si Si 0.03696 0.677
+pair_coeff OC OC 0.164858 3.011
+pair_coeff CO CO 0.05894 2.789
+
+bond_coeff CO-OC 0.0 1.18 # rigid
+
+angle_coeff OC-CO-OC 0.0 180.0 # rigid
+
