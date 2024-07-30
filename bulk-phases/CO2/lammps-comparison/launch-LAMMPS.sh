@@ -6,11 +6,11 @@ set -e
 LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 
 # Choose the chemical potential
-for mu in {2800..5000..200}
+for mu in 4000 # {2800..5000..200}
 do
 
     Nstep=1000000
-    if [[ $mu -gt 3900 ]]
+    if [[ $mu -gt 4100 ]]
     then
         # expected vapor
         box0=50

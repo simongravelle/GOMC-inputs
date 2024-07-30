@@ -3,11 +3,11 @@
 # Last tested using the 27Jun2024 LAMMPS version
 
 variable Nstep equal 1000000
-variable mu_K equal -5000
+variable mu_K equal -4000
 variable mu_kcal_mol equal ${mu_K}*0.0019872041
 print "mu equal ${mu_kcal_mol}"
 variable tfac equal 5.0/3.0
-variable Nattempt equal 10
+variable Nattempt equal 100
 
 units real
 boundary p p p
@@ -33,7 +33,7 @@ thermo 1000
 
 run 2000
 
-fix fgcmc CO2 gcmc 100 ${Nattempt} 0 0 65899 300 ${mu_kcal_mol} 0.1 &
+fix fgcmc CO2 gcmc 100 ${Nattempt} 0 0 25899 300 ${mu_kcal_mol} 0.1 &
     mol CO2mol tfac_insert ${tfac} full_energy rigid mynvt
 
 variable carbon atom "type==2"
