@@ -3,9 +3,12 @@
 set -e
 
 # link to LAMMPS
-LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
+# LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 # link to GOMC
-GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
+# GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
+
+LMP=/home/gravells/softwares/LAMMPS-GUI-1.6.4/lmp
+GOMC=/home/gravells/softwares/GOMC/bin/GOMC_CPU_GCMC
 
 # Choose the chemical potential
 for mu in {2800..5000..200}
