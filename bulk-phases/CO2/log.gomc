@@ -1,5 +1,5 @@
 Info: GOMC Version 2.75
-Info: Start Time: Tue Jul 30 21:01:18 2024
+Info: Start Time: Tue Jul 30 22:25:34 2024
 Info: Host Name: tower
 CPU information:
 Info: Total number of CPUs: 64
@@ -10,10 +10,10 @@ Info: Release: 6.5.0-42-generic
 Info: Version: #42-Ubuntu SMP PREEMPT_DYNAMIC Mon Jun 10 09:28:55 UTC 2024
 Info: Kernel Architecture: x86_64
 Info: Total Ram: 128535.8MB
-Info: Used Ram: 113408.4MB
+Info: Used Ram: 114045.5MB
 Info: Working in the current directory: /home/simon/Git/GOMC/GOMC-inputs/bulk-phases/CO2
 Info: GOMC COMPILED TO RUN GRAND CANONICAL ENSEMBLE.
-Info: Number of threads                  2 
+Info: Number of threads                  8 
 Info: Compiled with OpenMP Version       4.5
 
 Reading Input File:                      input.gomc
@@ -123,7 +123,7 @@ Info: Box  1:  Periodic Cell Basis 1     80.000   0.000   0.000
 Info: Box  1:  Periodic Cell Basis 2      0.000  80.000   0.000 
 Info: Box  1:  Periodic Cell Basis 3      0.000   0.000  80.000 
 
-Minimum coordinates in box 0: x =  -11.771, y =  -12.381, z =  -12.274
+Minimum coordinates in box 0: x =  -12.500, y =  -12.381, z =  -12.274
 Maximum coordinates in box 0: x =   12.271, y =   12.187, z =   12.486
 Wrapping molecules inside the simulation box 0:
 Minimum coordinates in box 1: x =  -39.989, y =  -39.939, z =  -39.978
@@ -136,13 +136,13 @@ Box: 0, RecipVectors:    931, kmax: 8
 
 ETITLE:     STEP           TOTAL        INTRA(B)       INTRA(NB)       INTER(LJ)             LRC     TOTAL_ELECT            REAL           RECIP            SELF            CORR
 
-ENER_0:        0     -5.0541e+02      0.0000e+00      0.0000e+00     -5.6274e+02     -1.1767e+01      6.9092e+01      5.6049e+01      5.9074e+02     -1.3267e+05      1.3209e+05
+ENER_0:        0     -1.5249e+03      0.0000e+00      0.0000e+00     -1.7738e+03     -4.7068e+01      2.9594e+02      2.4718e+02      1.2043e+03     -2.6533e+05      2.6418e+05
 
 ENER_1:        0      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
 
 STITLE:     STEP        TOTALMOL     TOT_DENSITY
 
-STAT_0:        0              10      4.6771e+01
+STAT_0:        0              20      9.3542e+01
 
 STAT_1:        0            2000      2.8547e+02
 

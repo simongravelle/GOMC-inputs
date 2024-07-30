@@ -3,12 +3,12 @@
 set -e
 
 # link to LAMMPS
-# LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
+LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
+#LMP=/home/gravells/softwares/LAMMPS-GUI-1.6.4/lmp
 # link to GOMC
-# GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
+GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
+#GOMC=/home/gravells/softwares/GOMC/bin/GOMC_CPU_GCMC
 
-LMP=/home/gravells/softwares/LAMMPS-GUI-1.6.4/lmp
-GOMC=/home/gravells/softwares/GOMC/bin/GOMC_CPU_GCMC
 
 # Choose the chemical potential
 for mu in {2800..5000..200}
@@ -16,7 +16,7 @@ do
 
     Nstep=2500000
     NCoord=50000
-    Nb0=10
+    Nb0=20
     Nb1=2000
     if [[ $mu -gt 4100 ]]
     then
