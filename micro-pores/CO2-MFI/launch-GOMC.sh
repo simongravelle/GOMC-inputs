@@ -12,11 +12,11 @@ for mu in {2800..5000..200}
 do
 
     Nstep=2500000
-    NCoord=10000
+    NCoord=50000
     Nb0=0
     Nb1=500
   
-    echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
+    echo "Chemical potential = -"${mu}" K"
 
     # Adjust initial box size
     # Call LAMMPS

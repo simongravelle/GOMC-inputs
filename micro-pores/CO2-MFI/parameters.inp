@@ -58,7 +58,7 @@ NONBONDED_MIE
 ! For conversion from K to kcal / mol, multiply
 ! by Boltzmann = 0.0019872041 kcal / (mol * K)
 !atom   eps          sig_ij     n    description
-O       128.21       2.708     12   ! 
-Si       18.60       0.677     12   ! 
+O        128.21       2.708     12   ! 
+Si        18.60       0.677     12   ! 
 OC        82.96       3.011     12   ! 
 CO        29.66       2.789     12   !

@@ -36,7 +36,7 @@ u = mda.Universe("lammps/box.data")
 u = add_names(u, type_to_name)
 u = add_residue(u, type_to_resname)
 # Write PDB
-PDB_writer(folder+"box.pdb", u, exchanged_molecule=True)
+PDB_writer(folder+"box.pdb", u, exchanged_molecule=False)
 # Write PSF
 PSF_writer(folder+"box.psf", u)
 
@@ -45,6 +45,6 @@ u = mda.Universe("lammps/reservoir.data")
 u = add_names(u, type_to_name)
 u = add_residue(u, type_to_resname)
 # Write PDB
-PDB_writer(folder+"reservoir.pdb", u, exchanged_molecule=False)
+PDB_writer(folder+"reservoir.pdb", u, exchanged_molecule=True)
 # Write PSF
 PSF_writer(folder+"reservoir.psf", u)

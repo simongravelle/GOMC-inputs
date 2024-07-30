@@ -124,8 +124,7 @@ CBMC_Dih     30
 # 1000 K <-> 1.987 kcal/mol
 ####################################
 Fugacity CO2 1044.2689
-Fugacity O 0.0
-Fugacity Si 0.0
+Fugacity MFI 0.0
 
 ############################################################################
 #  =======-------------------- OUTPUT --------------------------===========
@@ -139,7 +138,7 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq true 10000
+CoordinatesFreq true 50000
 RestartFreq         true   100000
 ConsoleFreq         true   100000
 BlockAverageFreq    true   10000

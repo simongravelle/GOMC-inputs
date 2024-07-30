@@ -32,9 +32,9 @@ def add_residue(u, type_to_resname):
     u.add_TopologyAttr("resnames", resnames)
     return u
 
-def PDB_writer(filename, u, exchanged_molecule=True):
+def PDB_writer(filename, u, exchanged_molecule):
     u.atoms.write(filename)
-    if exchanged_molecule:
+    if exchanged_molecule is False:
         file = open(filename, "r")
         all_lines = []
         for line in file:
