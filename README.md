@@ -11,7 +11,9 @@ The systems are either bulk CO2, bulk water, or adsorbed molecules in MFI Zeolit
 ![CO2-H2O-MFI](micro-pores/CO2-H2O-MFI/vmd/system.png#gh-light-mode-only)
 ![CO2-H2O-MFI](micro-pores/CO2-H2O-MFI/vmd/system-dm.png#gh-dark-mode-only)
 
-## Comparison with LAMMPS
+Figure: CO2 (gray and green) and H2O (white and red) adsorbed in a MFI Zeolite (red and yellow).
+
+## Comparing GOMC with LAMMPS
 
 For some systems, LAMMPS scripts are also provided, and results from both LAMMPS
 and GOMC are compared on the same graph. If you are new to LAMMPS, please
@@ -29,7 +31,8 @@ and the temperature is 300 K.
 ## Comparing the performance between LAMMPS and GOMC
 
 Both LAMMPS and GOMC simulations were performed using 8 CPU cores,
-in the absence of GPU optimizing.
+in the absence of GPU optimizing. Here the number of GCMC move attempts
+(successful or not) per minute are compared.
 
 ![CO2](bulk-phases/CO2/CO2-performance.png#gh-light-mode-only)
 ![CO2](bulk-phases/CO2/CO2-performance-dm.png#gh-dark-mode-only)
