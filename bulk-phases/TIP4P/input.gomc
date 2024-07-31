@@ -83,7 +83,7 @@ PressureCalc    false
 ################################
 # STEPS 
 ################################
-RunSteps 2500000
+RunSteps 250000
 EqSteps         10000   
 AdjSteps        5000        
 
@@ -99,9 +99,9 @@ RegrowthFreq    0.1
 ################################
 # BOX DIMENSION #, X, Y, Z
 ################################
-CellBasisVector1 0 80.0 0.00 0.00
-CellBasisVector2 0 0.00 80.0 0.00
-CellBasisVector3 0 0.00 0.00 80.0
+CellBasisVector1 0 125.0 0.00 0.00
+CellBasisVector2 0 0.00 125.0 0.00
+CellBasisVector3 0 0.00 0.00 125.0
 
 CellBasisVector1 1 80.0 0.00 0.00
 CellBasisVector2 1 0.00 80.0 0.00
@@ -137,7 +137,7 @@ OutputName output
 #####################################
 # enable, frequency           
 #####################################
-CoordinatesFreq true 10000
+CoordinatesFreq true 1000
 RestartFreq         true   100000
 ConsoleFreq         true   100000
 BlockAverageFreq    true   10000
