@@ -3,10 +3,11 @@
 set -e
 
 # link to LAMMPS
-LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
+# LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
+LMP=/home/gravells/softwares/LAMMPS-GUI-1.6.4/lmp
 
 # Choose the chemical potential
-for mu in {2800..5000..200}
+for mu in {3400..5000..200}
 do
     Nstep=2500000
     Nb0=50
