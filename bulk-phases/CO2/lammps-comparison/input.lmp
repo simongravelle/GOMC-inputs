@@ -3,11 +3,11 @@
 # Last tested using the 27Jun2024 LAMMPS version
 
 variable Nstep equal 2500000
-variable mu_K equal -3400
+variable mu_K equal -5000
 variable mu_kcal_mol equal ${mu_K}*0.0019872041
 print "mu equal ${mu_kcal_mol}"
 variable tfac equal 5.0/3.0
-variable Nattempt equal 100
+variable Nattempt equal 10
 
 units real
 boundary p p p
