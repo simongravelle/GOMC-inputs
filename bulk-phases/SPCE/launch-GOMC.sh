@@ -8,17 +8,17 @@ LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
 # Choose the chemical potential
-for mu in {4000..8000..1000}
+for mu in {3800..5200..100}
 do
 
-    Nstep=25000
+    Nstep=2500000
     NCoord=100
-    Nb0=10
-    Nb1=100
-    if [[ $mu -gt 100000 ]]
+    Nb0=0
+    Nb1=1600
+    if [[ $mu -gt 4500 ]]
     then
         # expected vapor
-        box0=50
+        box0=80
     else
         # expected liquid
         box0=25        
