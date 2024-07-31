@@ -8,7 +8,7 @@ LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
 # Choose the chemical potential
-for mu in {3800..5200..100}
+for mu in {4300..5200..100}
 do
 
     Nstep=2500000
