@@ -1,0 +1,47 @@
+*Parameter file for TIP4P-2005
+BONDS
+!
+!V(bond) = Kb(b - b0)**2
+!
+!Kb: kcal/mole/A**2
+!b0: A
+!
+!atom type Kb          b0  All constants from Charmm
+OH   HO    99999999999       0.9572 ! TIP4P-2005 O-H bond length
+OH   MO    99999999999       0.1546 ! TIP4P-2005 M-O bond length
+
+ANGLES
+!
+!V(angle) = Ktheta(Theta - Theta0)**2
+!
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+!atom types     Ktheta    Theta0   Kub     S0
+!
+HO   OH   HO    9999999999999    104.52  ! TIP4P-2005 H-O-H Fix Angle
+HO   OH   MO    9999999999999     52.26  ! TIP4P-2005 H-O-M Fix Angle
+
+DIHEDRALS
+!
+!V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+!
+!Kchi: kcal/mole
+!n: multiplicity
+!delta: degrees
+!
+!atom types             Kchi    n   delta
+!
+
+NONBONDED_MIE
+!
+!V(mie) = 4*eps*((sig_ij/r_ij)^n-(sig_ij/r_ij)^6)
+! The energy in the exotic file are expressed in Kelvin (K),
+! as this is the standard convention in the literature.
+! For conversion from K to kcal / mol, multiply
+! by Boltzmann = 0.0019872041 kcal / (mol * K)
+!
+!atom   eps          sig_ij     n    description
+HO       0.0          0.0       12   ! TIP4P-2005
+MO       0.0          0.0       12   ! TIP4P-2005
+OH       93.2         3.1589    12   ! TIP4P-2005
