@@ -8,14 +8,14 @@ LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 GOMC=/home/simon/Softwares/GOMC/bin/GOMC_CPU_GCMC
 
 # Choose the chemical potential
-for mu in {4400..5200..100}
+for mu in {4600..5200..100}
 do
 
     Nstep=2500000
     NCoord=10000
     Nb0=0
-    Nb1=1600
-    if [[ $mu -gt 4500 ]]
+    Nb1=3000
+    if [[ $mu -gt 4850 ]]
     then
         # expected vapor
         box0=80
@@ -71,17 +71,18 @@ do
     cd ..
 
     ${GOMC} +p8 input.gomc > log.gomc
-
+    
+    cp ../../scripts/analysis_single_folder.py .
+    python3 analysis_single_folder.py
+    rm analysis_single_folder.py
+    
     # create folder for data saving
-    data_folder='outputs_mu'${mu}
+    data_folder='outputs_mu'${mu}'/'
     mkdir -p ${data_folder}
 
     mv *.dat ${data_folder}
     mv log.gomc ${data_folder}
-    rm output_*
-
-    cp ../../scripts/analysis.py .
-    python3 analysis.py
-    rm analysis.py
+    
+    rm output_* 
 
 done
