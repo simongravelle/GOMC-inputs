@@ -1,0 +1,179 @@
+Chemical potential = -3800 K --- Box size = 25 A
+LAMMPS (27 Jun 2024)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Created orthogonal box = (-12.5 -12.5 -12.5) to (12.5 12.5 12.5)
+  1 by 1 by 1 MPI processor grid
+Read molecule template h2Omol:
+# LAMMPS molecule file for carbondioxide
+  1 molecules
+  0 fragments
+  3 atoms with max type 2
+  2 bonds with max type 1
+  1 angles with max type 1
+  0 dihedrals with max type 0
+  0 impropers with max type 0
+Created 75 atoms
+  using lattice units in orthogonal box = (-12.5 -12.5 -12.5) to (12.5 12.5 12.5)
+  create_atoms CPU = 0.003 seconds
+75 atoms in group H2O
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+- Type Label Framework: https://doi.org/10.1021/acs.jpcb.3c08419
+The log file lists these citations in BibTeX format.
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Ewald initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+WARNING: For better accuracy use 'pair_modify table 0' (src/kspace.cpp:365)
+  G vector (1/distance) = 1
+  estimated absolute RMS force accuracy = 0.0022899132
+  estimated relative force accuracy = 6.8960056e-06
+  KSpace vectors: actual max1d max3d = 25441 23 51911
+                  kxmax kymax kzmax  = 23 23 23
+Generated 1 of 1 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 14
+  ghost atom cutoff = 14
+  binsize = 7, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 1
+Per MPI rank memory allocation (min/avg/max) = 48.41 | 48.41 | 48.41 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              1.0262459      0              1.0262459      8.1187842    
+Loop time of 2.945e-06 on 1 procs for 0 steps with 75 atoms
+
+101.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Bond    | 0          | 0          | 0          |   0.0 |  0.00
+Kspace  | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 2.945e-06  |            |       |100.00
+
+Nlocal:             75 ave          75 max          75 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            619 ave         619 max         619 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:           2014 ave        2014 max        2014 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 2014
+Ave neighs/atom = 26.853333
+Ave special neighs/atom = 2
+Neighbor list builds = 0
+Dangerous builds = 0
+System init for write_data ...
+Ewald initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+WARNING: For better accuracy use 'pair_modify table 0' (src/kspace.cpp:365)
+  G vector (1/distance) = 1
+  estimated absolute RMS force accuracy = 0.0022899132
+  estimated relative force accuracy = 6.8960056e-06
+  KSpace vectors: actual max1d max3d = 25441 23 51911
+                  kxmax kymax kzmax  = 23 23 23
+Generated 1 of 1 mixed pair_coeff terms from geometric mixing rule
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Created orthogonal box = (-40 -40 -40) to (40 40 40)
+  1 by 1 by 1 MPI processor grid
+Read molecule template h2Omol:
+# LAMMPS molecule file for carbondioxide
+  1 molecules
+  0 fragments
+  3 atoms with max type 2
+  2 bonds with max type 1
+  1 angles with max type 1
+  0 dihedrals with max type 0
+  0 impropers with max type 0
+Created 4800 atoms
+  using lattice units in orthogonal box = (-40 -40 -40) to (40 40 40)
+  create_atoms CPU = 0.236 seconds
+4800 atoms in group H2O
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Ewald initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.22980857
+  estimated absolute RMS force accuracy = 0.0036057256
+  estimated relative force accuracy = 1.0858535e-05
+  KSpace vectors: actual max1d max3d = 10239 17 21437
+                  kxmax kymax kzmax  = 17 17 17
+Generated 1 of 1 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 14
+  ghost atom cutoff = 14
+  binsize = 7, bins = 12 12 12
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 1
+Per MPI rank memory allocation (min/avg/max) = 37.05 | 37.05 | 37.05 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0             -189.27738      0             -189.27738     -23.673594    
+Loop time of 9.07e-07 on 1 procs for 0 steps with 4800 atoms
+
+220.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Bond    | 0          | 0          | 0          |   0.0 |  0.00
+Kspace  | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 9.07e-07   |            |       |100.00
+
+Nlocal:           4800 ave        4800 max        4800 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           6978 ave        6978 max        6978 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         258856 ave      258856 max      258856 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 258856
+Ave neighs/atom = 53.928333
+Ave special neighs/atom = 2
+Neighbor list builds = 0
+Dangerous builds = 0
+System init for write_data ...
+Ewald initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.22980857
+  estimated absolute RMS force accuracy = 0.0036057256
+  estimated relative force accuracy = 1.0858535e-05
+  KSpace vectors: actual max1d max3d = 10239 17 21437
+                  kxmax kymax kzmax  = 17 17 17
+Generated 1 of 1 mixed pair_coeff terms from geometric mixing rule
+Total wall time: 0:00:00
+LAMMPS (27 Jun 2024)
