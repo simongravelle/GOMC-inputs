@@ -6,21 +6,20 @@ set -e
 LMP=/home/simon/Softwares/LAMMPS-GUI-1.6.4/lmp
 
 # Choose the chemical potential
-for mu in {2800..5000..200}
+for mu in {3800..5200..100}
 do
 
-    Nstep=1000000
-    if [[ $mu -gt 3900 ]]
+    Nstep=2500000
+    Nb0=25
+    if [[ $mu -gt 4500 ]]
     then
         # expected vapor
-        box0=50
+        box0=80
         Nattempt=10
-        Nb0=50
     else
         # expected liquid
         box0=25
         Nattempt=100
-        Nb0=1000
     fi
     echo "Chemical potential = -"${mu}" K --- Box size = "${box0}" A"
 
