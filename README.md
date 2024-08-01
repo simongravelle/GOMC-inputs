@@ -13,11 +13,14 @@ The systems are either bulk CO2, bulk water, or adsorbed molecules in MFI Zeolit
 
 Figure: CO2 (gray and green) and H2O (white and red) adsorbed in a MFI Zeolite (red and yellow).
 
-## Comparing GOMC with LAMMPS
+# CO2/H2O adsorption in MFI porous material
 
-For some systems, LAMMPS scripts are also provided, and results from both LAMMPS
-and GOMC are compared on the same graph. If you are new to LAMMPS, please
-visit [this website](lammpstutorials.github.io).
+The CO2 model is a rigid model from
+[Harris and Yung, J. Phys. Chem., 99 1995](https://pubs.acs.org/doi/10.1021/j100031a034),
+and the temperature is 300 K. The water model is TIP4P-2005.
+
+![CO2-H2O-MFI](micro-pores/CO2-H2O-MFI/CO2-H2O.png#gh-light-mode-only)
+![CO2-H2O-MFI](micro-pores/CO2-H2O-MFI/CO2-H2O-dm.png#gh-dark-mode-only)
 
 # Pure CO2 (with LAMMPS comparison)
 
@@ -33,6 +36,10 @@ and the temperature is 300 K.
 Both LAMMPS and GOMC simulations were performed using 8 CPU cores,
 in the absence of GPU optimizing. Here the number of GCMC move attempts
 (successful or not) per minute are compared.
+
+LAMMPS scripts are also provided here, and results from both LAMMPS
+and GOMC are compared on the same graph. If you are new to LAMMPS, please
+visit [this website](lammpstutorials.github.io)
 
 ![CO2](bulk-phases/CO2/CO2-performance.png#gh-light-mode-only)
 ![CO2](bulk-phases/CO2/CO2-performance-dm.png#gh-dark-mode-only)
