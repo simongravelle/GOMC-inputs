@@ -2,10 +2,14 @@
 # For LAMMPS tutorials, see https://lammpstutorials.github.io
 # Last tested using the 27Jun2024 LAMMPS version
 
+<<<<<<< HEAD
 variable box0 equal 125
+=======
+variable box0 equal 25
+>>>>>>> cccde44 (added results pores)
 variable boxm equal -${box0}/2
 variable boxp equal ${box0}/2
-variable Nb0 equal 0
+variable Nb0 equal 25
 
 units real
 boundary p p p
