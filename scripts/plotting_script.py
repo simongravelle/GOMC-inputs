@@ -87,3 +87,24 @@ def evaluate_lammps_performances(dirs, mus):
         total_GCMC_attempts = np.int32(N_GCMC_step*Nattempt)
         performance_lammps.append([mu, total_time, total_GCMC_attempts])
     return np.array(performance_lammps)
+
+def density_from_mu_id(mu_K, deBroglie_wavelength, kB, T):
+    mu_J = (mu_K*kB).to_base_units()
+    return np.exp(-mu_J/(kB*T)) / deBroglie_wavelength**3
+
+def predict_vapor_density(ureg, mu_range = np.arange(3700, 5200), molecule="CO2"):
+    T = 300 * ureg.kelvin
+    kB =  1.380649e-23 * ureg.joule/ureg.kelvin # J/K
+    Na = 6.022141e23/ureg.mol # mol-1
+    h = 6.626e-34 * ureg.joule*ureg.second # Js
+    if molecule == "CO2":
+        mass_g_mol = 44.01 * ureg.gram/ureg.mol
+    elif molecule=="H2O":
+        mass_g_mol = 18.015 * ureg.gram/ureg.mol
+    mass = mass_g_mol / Na
+    mass = mass.to_base_units()
+    deBroglie_wavelength = np.sqrt(h**2/(2*np.pi*mass*kB*T)).to_base_units()
+    mu_K = mu_range*ureg.kelvin
+    rho_m3 = density_from_mu_id(mu_K, deBroglie_wavelength, kB, T) # per m3
+    rho_g_cm3 = (rho_m3 * mass_g_mol / Na).to(ureg.gram/ureg.cm**3)
+    return rho_g_cm3, mu_K
