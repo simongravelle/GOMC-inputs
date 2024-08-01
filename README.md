@@ -17,10 +17,22 @@ Figure: CO2 (gray and green) and H2O (white and red) adsorbed in a MFI Zeolite (
 
 The CO2 model is a rigid model from
 [Harris and Yung, J. Phys. Chem., 99 1995](https://pubs.acs.org/doi/10.1021/j100031a034),
-and the temperature is 300 K. The water model is TIP4P-2005.
+the water model is TIP4P-2005, and the temperature is 300 K. 
 
 ![CO2-H2O-MFI](micro-pores/CO2-H2O-MFI/CO2-H2O.png#gh-light-mode-only)
 ![CO2-H2O-MFI](micro-pores/CO2-H2O-MFI/CO2-H2O-dm.png#gh-dark-mode-only)
+
+# CO2 adsorption in MFI porous material (with LAMMPS comparison)
+
+The CO2 model is a rigid model from
+[Harris and Yung, J. Phys. Chem., 99 1995](https://pubs.acs.org/doi/10.1021/j100031a034),
+and the temperature is 300 K. 
+
+![CO2-MFI](micro-pores/CO2-MFI/CO2-MFI.png#gh-light-mode-only)
+![CO2-MFI](micro-pores/CO2-MFI/CO2-MFI-dm.png#gh-dark-mode-only)
+
+![CO2-MFI](micro-pores/CO2-MFI/CO2-MFI-performance.png#gh-light-mode-only)
+![CO2-MFI](micro-pores/CO2-MFI/CO2-MFI-performance-dm.png#gh-dark-mode-only)
 
 # Pure CO2 (with LAMMPS comparison)
 
