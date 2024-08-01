@@ -1,0 +1,733 @@
+Info: GOMC Version 2.75
+Info: Start Time: Tue Jul 30 20:19:04 2024
+Info: Host Name: tower
+CPU information:
+Info: Total number of CPUs: 64
+Info: Total number of CPUs available: 64
+Info: Model name: Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz
+Info: System name: Linux
+Info: Release: 6.5.0-42-generic
+Info: Version: #42-Ubuntu SMP PREEMPT_DYNAMIC Mon Jun 10 09:28:55 UTC 2024
+Info: Kernel Architecture: x86_64
+Info: Total Ram: 128535.8MB
+Info: Used Ram: 113094.6MB
+Info: Working in the current directory: /home/simon/Git/GOMC/GOMC-inputs/micro-pores/CO2-MFI
+Info: GOMC COMPILED TO RUN GRAND CANONICAL ENSEMBLE.
+Info: Number of threads                  8 
+Info: Compiled with OpenMP Version       4.5
+
+Reading Input File:                      input.gomc
+Info: Constant seed                      Active 
+Info: PARAMETER file                     MIE format! 
+Info: Input Temperature                  300.0000 K
+Info: Non-truncated potential            Active 
+Info: Long Range Correction              Active 
+Info: Cutoff                             12.0000 A
+Info: Short Range Cutoff                 1.0000 A
+Info: Exclude                            ONE-FOUR 
+Info: Box  0  CutoffCoulomb              12.0000 A
+Info: Ewald Summation                    Active 
+Info: Cache Ewald Fourier                Inactive 
+Info: Ewald Summation Tolerance          1.000E-05 
+Info: Pressure calculation               Inactive 
+Info: Total number of steps              2500000 
+Info: Number of equilibration steps      10000 
+Info: Move adjustment frequency          5000 
+Info: Displacement move frequency        0.2000 
+Info: Rotation move frequency            0.1000 
+Info: Molecule swap move frequency       0.6000 
+Info: Regrowth move frequency            0.1000 
+Info: CBMC First atom trials             10   
+Info: CBMC Secondary atom trials         4    
+Info: CBMC Angle trials                  100  
+Info: CBMC Dihedral trials               30   
+Info: Fugacity                           CO2    141.3264 bar
+Info: Fugacity                           MFI    0.0000 bar
+Info: Output name                        output 
+Info: Coordinate frequency               10000 
+Info: Restart frequency                  100000 
+Info: Console output frequency           100000 
+Info: Average output frequency           10000 
+Info: Histogram output frequency         10000 
+Info: Histogram sample frequency         200 
+Default: Intra-Swap move frequency       0.0000 
+Default: Multi-Particle move frequency   0.0000 
+Default: Multi-Particle Brownian move frequency 0.0000 
+Default: Intra-MEMC move frequency       0.0000 
+Default: Crank-Shaft move frequency      0.0000 
+Default: Targeted-Swap move frequency    0.0000 
+Default: MEMC move frequency             0.0000 
+Default: nonEq Mol-Transfer move frequency 0.0000 
+Default: Targeted-Swap move frequency    0.0000 
+Default: Box  1  CutoffCoulomb           12.0000 A
+Note: Pressure Calculation Inactivated. Pressure average output will be ignored.
+Note: Pressure Calculation Inactivated. Pressure output will be ignored.
+Finished Reading Input File:             input.gomc
+
+Reading from EXOTIC-Style parameter file:  	parameters.inp
+Reading BONDS parameters.
+Reading ANGLES parameters.
+Reading DIHEDRALS parameters.
+Reading NONBONDED_MIE parameters.
+Reading from box 0 PDB coordinate file:  	topology/gomc/box.pdb
+Finished reading:                       	topology/gomc/box.pdb
+Reading from box 1 PDB coordinate file:  	topology/gomc/reservoir.pdb
+Finished reading:                       	topology/gomc/reservoir.pdb
+Random number seed: 800
+
+Molecules in PSF:
+Molecule Kind: MFI
+Idx	name	type	charge	mass
+0	O	O	-0.4000	15.9994
+
+Bonds:
+
+Angles:
+
+Dihedrals:
+
+Impropers:
+
+Molecule Kind: MFI
+Idx	name	type	charge	mass
+0	Si	Si	0.8000	28.0855
+
+Bonds:
+
+Angles:
+
+Dihedrals:
+
+Impropers:
+
+Molecule Kind: CO2
+Idx	name	type	charge	mass
+0	OC	OC	-0.2880	15.9994
+1	CO	CO	0.5760	12.0110
+2	OC	OC	-0.2880	15.9994
+
+Bonds:
+[1 2] [0 1] 
+
+Angles:
+[0 1 2] 
+
+Dihedrals:
+
+Impropers:
+
+Bonds parameter:
+Atom Types                             Kb(K)           b0(A) 
+CO	OC	                         FIX           1.1800 
+OC	CO	                         FIX           1.1800 
+
+Angles parameter:
+Atom Types                         Ktheta(K)         theta0(degree) 
+OC	CO	OC	                 FIX         180.0000 
+
+Dihedrals parameter:
+Atom Types                           Kchi(K)    n    delta(degree) 
+
+================================================
+
+Warning: Sum of the charge in the system is: 1382.4000
+
+================================================
+NonBonded 1-4 parameters:
+Type1  Type2             Epsilon(K)    Sigma(A)       N 
+O      O                   128.2100      2.7080   12.00 
+O      Si                   48.8335      1.6925   12.00 
+O      OC                  103.1324      2.8595   12.00 
+O      CO                   61.6661      2.7485   12.00 
+Si     Si                   18.6000      0.6770   12.00 
+Si     OC                   39.2818      1.8440   12.00 
+Si     CO                   23.4878      1.7330   12.00 
+OC     OC                   82.9600      3.0110   12.00 
+OC     CO                   49.6044      2.9000   12.00 
+CO     CO                   29.6600      2.7890   12.00 
+
+NonBonded parameters:
+Type1  Type2             Epsilon(K)    Sigma(A)       N 
+O      O                   128.2100      2.7080   12.00 
+O      Si                   48.8335      1.6925   12.00 
+O      OC                  103.1324      2.8595   12.00 
+O      CO                   61.6661      2.7485   12.00 
+Si     Si                   18.6000      0.6770   12.00 
+Si     OC                   39.2818      1.8440   12.00 
+Si     CO                   23.4878      1.7330   12.00 
+OC     OC                   82.9600      3.0110   12.00 
+OC     CO                   49.6044      2.9000   12.00 
+CO     CO                   29.6600      2.7890   12.00 
+
+Info: Box  0:  Periodic Cell Basis 1     40.120   0.000   0.000 
+Info: Box  0:  Periodic Cell Basis 2      0.000  39.600   0.000 
+Info: Box  0:  Periodic Cell Basis 3      0.000   0.000  40.080 
+
+Info: Box  1:  Periodic Cell Basis 1     80.000   0.000   0.000 
+Info: Box  1:  Periodic Cell Basis 2      0.000  80.000   0.000 
+Info: Box  1:  Periodic Cell Basis 3      0.000   0.000  80.000 
+
+Minimum coordinates in box 0: x =    0.036, y =    0.020, z =    0.004
+Maximum coordinates in box 0: x =   40.144, y =   39.456, z =   39.422
+Wrapping molecules inside the simulation box 0:
+Minimum coordinates in box 1: x =  -39.981, y =  -39.898, z =  -39.925
+Maximum coordinates in box 1: x =   39.993, y =   39.766, z =   40.000
+Wrapping molecules inside the simulation box 1:
+Box: 0, RecipVectors:   3784, kmax: 13
+
+################################################################################
+########################## INITIAL SIMULATION ENERGY ###########################
+
+ETITLE:     STEP           TOTAL        INTRA(B)       INTRA(NB)       INTER(LJ)             LRC     TOTAL_ELECT            REAL           RECIP            SELF            CORR
+
+ENER_0:        0     -8.3908e+07      0.0000e+00      0.0000e+00      3.7297e+05     -2.0898e+04     -8.4260e+07     -5.4886e+07      1.0747e+05     -2.9481e+07      0.0000e+00
+
+ENER_1:        0      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STITLE:     STEP        TOTALMOL     MOLFRAC_MFI     MOLFRAC_MFI     MOLFRAC_CO2     MOLDENS_MFI     MOLDENS_MFI     MOLDENS_CO2     TOT_DENSITY
+
+STAT_0:        0            3456  6.66666667e-01  3.33333333e-01  0.00000000e+00  3.61825113e-02  1.80912557e-02  0.00000000e+00      1.8050e+03
+
+STAT_1:        0             500  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  9.76562500e-04      7.1367e+01
+
+################################################################################
+############################# STARTING SIMULATION ##############################
+
+MTITLE:     STEP          DISTRY       DISACCEPT      DISACCEPT%          DISMAX          ROTATE       ROTACCEPT      ROTACCEPT%          ROTMAX        REGROWTH    REGROWACCEPT   REGROWACCEPT%        TRANSFER      TRANACCEPT     TRANACCEPT%
+
+ETITLE:     STEP           TOTAL        INTRA(B)       INTRA(NB)       INTER(LJ)             LRC     TOTAL_ELECT            REAL           RECIP            SELF            CORR
+
+STITLE:     STEP        TOTALMOL     MOLFRAC_MFI     MOLFRAC_MFI     MOLFRAC_CO2     MOLDENS_MFI     MOLDENS_MFI     MOLDENS_CO2     TOT_DENSITY
+
+Printed combined psf to file output_merged.psf
+MOVE_0:   100000           20020           20019      9.9995e+01      1.7476e-05            9946            4960      4.9869e+01      7.6596e-01            9909            2914      2.9408e+01           30069             499      1.6595e+00
+
+ENER_0:   100000     -8.4589e+07      0.0000e+00      0.0000e+00     -2.3314e+05     -3.4896e+04     -8.4321e+07     -5.4905e+07      7.9339e+04     -3.2758e+07      3.2626e+06
+
+STAT_0:   100000            3703  6.22198218e-01  3.11099109e-01  6.67026735e-02  3.61825113e-02  1.80912557e-02  3.87894110e-03      2.0885e+03
+
+MOVE_1:   100000           30056             252      8.3843e-01
+
+ENER_1:   100000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   100000             253  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.94140625e-04      3.6112e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 100000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 100000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 100000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 100000 
+Writing checkpoint to file output_restart.chk at step 100000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1568.693, Simulation ends in:   0 d:   0 h:  26 m 
+
+MOVE_0:   200000           39987           36114      9.0314e+01      1.0797e-01           19890            9942      4.9985e+01      7.6938e-01           20009            5799      2.8982e+01           60104             632      1.0515e+00
+
+ENER_0:   200000     -8.4625e+07      0.0000e+00      0.0000e+00     -2.6700e+05     -3.4959e+04     -8.4323e+07     -5.4905e+07      7.7253e+04     -3.2771e+07      3.2758e+06
+
+STAT_0:   200000            3704  6.22030238e-01  3.11015119e-01  6.69546436e-02  3.61825113e-02  1.80912557e-02  3.89464531e-03      2.0896e+03
+
+MOVE_1:   200000           60010             384      6.3989e-01
+
+ENER_1:   200000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   200000             252  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.92187500e-04      3.5969e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 200000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 200000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 200000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 200000 
+Writing checkpoint to file output_restart.chk at step 200000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1590.850, Simulation ends in:   0 d:   0 h:  25 m 
+
+MOVE_0:   300000           59860           46066      7.6956e+01      1.0951e-01           29968           14987      5.0010e+01      7.6683e-01           30017            8787      2.9273e+01           90083             768      8.5255e-01
+
+ENER_0:   300000     -8.4659e+07      0.0000e+00      0.0000e+00     -3.0012e+05     -3.5601e+04     -8.4324e+07     -5.4903e+07      7.5607e+04     -3.2904e+07      3.4079e+06
+
+STAT_0:   300000            3714  6.20355412e-01  3.10177706e-01  6.94668821e-02  3.61825113e-02  1.80912557e-02  4.05168746e-03      2.1011e+03
+
+MOVE_1:   300000           90072             510      5.6621e-01
+
+ENER_1:   300000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   300000             242  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.72656250e-04      3.4542e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 300000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 300000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 300000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 300000 
+Writing checkpoint to file output_restart.chk at step 300000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1590.333, Simulation ends in:   0 d:   0 h:  24 m 
+
+MOVE_0:   400000           79899           56084      7.0194e+01      1.0779e-01           39836           19954      5.0090e+01      7.9557e-01           39980           11603      2.9022e+01          120094             861      7.1694e-01
+
+ENER_0:   400000     -8.4670e+07      0.0000e+00      0.0000e+00     -3.0342e+05     -3.5730e+04     -8.4331e+07     -5.4908e+07      7.2974e+04     -3.2931e+07      3.4343e+06
+
+STAT_0:   400000            3716  6.20021529e-01  3.10010764e-01  6.99677072e-02  3.61825113e-02  1.80912557e-02  4.08309589e-03      2.1034e+03
+
+MOVE_1:   400000          120191             601      5.0004e-01
+
+ENER_1:   400000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   400000             240  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.68750000e-04      3.4256e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 400000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 400000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 400000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 400000 
+Writing checkpoint to file output_restart.chk at step 400000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1582.262, Simulation ends in:   0 d:   0 h:  23 m 
+
+MOVE_0:   500000          100141           66191      6.6098e+01      1.0350e-01           49643           24848      5.0053e+01      7.7887e-01           50060           14434      2.8833e+01          149798             944      6.3018e-01
+
+ENER_0:   500000     -8.4689e+07      0.0000e+00      0.0000e+00     -3.2768e+05     -3.6248e+04     -8.4325e+07     -5.4900e+07      7.1244e+04     -3.3037e+07      3.5399e+06
+
+STAT_0:   500000            3724  6.18689581e-01  3.09344791e-01  7.19656284e-02  3.61825113e-02  1.80912557e-02  4.20872961e-03      2.1126e+03
+
+MOVE_1:   500000          150358             676      4.4959e-01
+
+ENER_1:   500000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   500000             232  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.53125000e-04      3.3114e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 500000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 500000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 500000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 500000 
+Writing checkpoint to file output_restart.chk at step 500000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1580.018, Simulation ends in:   0 d:   0 h:  22 m 
+
+MOVE_0:   600000          120165           76157      6.3377e+01      9.3017e-02           59690           29874      5.0049e+01      7.7282e-01           60084           17143      2.8532e+01          179695            1028      5.7208e-01
+
+ENER_0:   600000     -8.4731e+07      0.0000e+00      0.0000e+00     -3.6024e+05     -3.6836e+04     -8.4333e+07     -5.4908e+07      7.2010e+04     -3.3156e+07      3.6588e+06
+
+STAT_0:   600000            3733  6.17197964e-01  3.08598982e-01  7.42030538e-02  3.61825113e-02  1.80912557e-02  4.35006755e-03      2.1229e+03
+
+MOVE_1:   600000          180366             751      4.1638e-01
+
+ENER_1:   600000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   600000             223  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.35546875e-04      3.1830e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 600000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 600000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 600000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 600000 
+Writing checkpoint to file output_restart.chk at step 600000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1575.990, Simulation ends in:   0 d:   0 h:  21 m 
+
+MOVE_0:   700000          140317           86283      6.1491e+01      1.0149e-01           69672           34896      5.0086e+01      7.9270e-01           70136           19754      2.8165e+01          209609            1119      5.3385e-01
+
+ENER_0:   700000     -8.4717e+07      0.0000e+00      0.0000e+00     -3.4071e+05     -3.6378e+04     -8.4340e+07     -5.4915e+07      7.1718e+04     -3.3063e+07      3.5664e+06
+
+STAT_0:   700000            3726  6.18357488e-01  3.09178744e-01  7.24637681e-02  3.61825113e-02  1.80912557e-02  4.24013804e-03      2.1149e+03
+
+MOVE_1:   700000          210266             849      4.0377e-01
+
+ENER_1:   700000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   700000             230  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.49218750e-04      3.2829e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 700000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 700000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 700000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 700000 
+Writing checkpoint to file output_restart.chk at step 700000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1574.538, Simulation ends in:   0 d:   0 h:  19 m 
+
+MOVE_0:   800000          160337           96310      6.0067e+01      1.0245e-01           79699           39902      5.0066e+01      7.7505e-01           79981           22514      2.8149e+01          239707            1187      4.9519e-01
+
+ENER_0:   800000     -8.4675e+07      0.0000e+00      0.0000e+00     -3.1603e+05     -3.5924e+04     -8.4323e+07     -5.4899e+07      7.2577e+04     -3.2970e+07      3.4739e+06
+
+STAT_0:   800000            3719  6.19521377e-01  3.09760688e-01  7.07179349e-02  3.61825113e-02  1.80912557e-02  4.13020854e-03      2.1068e+03
+
+MOVE_1:   800000          240276             924      3.8456e-01
+
+ENER_1:   800000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   800000             237  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.62890625e-04      3.3828e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 800000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 800000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 800000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 800000 
+Writing checkpoint to file output_restart.chk at step 800000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1577.224, Simulation ends in:   0 d:   0 h:  18 m 
+
+MOVE_0:   900000          180284          106277      5.8950e+01      1.0013e-01           89652           44868      5.0047e+01      7.5579e-01           90011           25341      2.8153e+01          269692            1278      4.7387e-01
+
+ENER_0:   900000     -8.4700e+07      0.0000e+00      0.0000e+00     -3.3277e+05     -3.6313e+04     -8.4331e+07     -5.4908e+07      7.3667e+04     -3.3050e+07      3.5532e+06
+
+STAT_0:   900000            3725  6.18523490e-01  3.09261745e-01  7.22147651e-02  3.61825113e-02  1.80912557e-02  4.22443383e-03      2.1137e+03
+
+MOVE_1:   900000          270361            1009      3.7320e-01
+
+ENER_1:   900000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:   900000             231  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.51171875e-04      3.2972e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 900000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 900000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 900000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 900000 
+Writing checkpoint to file output_restart.chk at step 900000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1576.365, Simulation ends in:   0 d:   0 h:  17 m 
+
+MOVE_0:  1000000          200251          116266      5.8060e+01      9.9836e-02           99652           49910      5.0084e+01      7.8339e-01          100012           28062      2.8059e+01          299693            1354      4.5180e-01
+
+ENER_0:  1000000     -8.4722e+07      0.0000e+00      0.0000e+00     -3.4959e+05     -3.6836e+04     -8.4335e+07     -5.4911e+07      7.2469e+04     -3.3156e+07      3.6588e+06
+
+STAT_0:  1000000            3733  6.17197964e-01  3.08598982e-01  7.42030538e-02  3.61825113e-02  1.80912557e-02  4.35006755e-03      2.1229e+03
+
+MOVE_1:  1000000          300392            1077      3.5853e-01
+
+ENER_1:  1000000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1000000             223  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.35546875e-04      3.1830e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1000000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1000000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1000000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1000000 
+Writing checkpoint to file output_restart.chk at step 1000000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1575.056, Simulation ends in:   0 d:   0 h:  16 m 
+
+MOVE_0:  1100000          220440          126407      5.7343e+01      1.0791e-01          109684           54938      5.0088e+01      7.8499e-01          109803           30674      2.7935e+01          329826            1417      4.2962e-01
+
+ENER_0:  1100000     -8.4700e+07      0.0000e+00      0.0000e+00     -3.2839e+05     -3.6443e+04     -8.4335e+07     -5.4913e+07      7.4578e+04     -3.3076e+07      3.5796e+06
+
+STAT_0:  1100000            3727  6.18191575e-01  3.09095787e-01  7.27126375e-02  3.61825113e-02  1.80912557e-02  4.25584226e-03      2.1160e+03
+
+MOVE_1:  1100000          330247            1146      3.4701e-01
+
+ENER_1:  1100000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1100000             229  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.47265625e-04      3.2686e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1100000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1100000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1100000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1100000 
+Writing checkpoint to file output_restart.chk at step 1100000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1577.677, Simulation ends in:   0 d:   0 h:  15 m 
+
+MOVE_0:  1200000          240488          136411      5.6723e+01      1.0119e-01          119665           59928      5.0080e+01      7.8264e-01          119559           33453      2.7980e+01          359801            1519      4.2218e-01
+
+ENER_0:  1200000     -8.4702e+07      0.0000e+00      0.0000e+00     -3.3003e+05     -3.6248e+04     -8.4335e+07     -5.4910e+07      7.1728e+04     -3.3037e+07      3.5399e+06
+
+STAT_0:  1200000            3724  6.18689581e-01  3.09344791e-01  7.19656284e-02  3.61825113e-02  1.80912557e-02  4.20872961e-03      2.1126e+03
+
+MOVE_1:  1200000          360487            1251      3.4703e-01
+
+ENER_1:  1200000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1200000             232  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.53125000e-04      3.3114e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1200000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1200000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1200000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1200000 
+Writing checkpoint to file output_restart.chk at step 1200000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1578.661, Simulation ends in:   0 d:   0 h:  14 m 
+
+MOVE_0:  1300000          260305          146379      5.6234e+01      1.1158e-01          129701           64948      5.0075e+01      7.7431e-01          129815           36319      2.7978e+01          389709            1600      4.1056e-01
+
+ENER_0:  1300000     -8.4718e+07      0.0000e+00      0.0000e+00     -3.5505e+05     -3.6443e+04     -8.4326e+07     -5.4901e+07      7.1987e+04     -3.3076e+07      3.5796e+06
+
+STAT_0:  1300000            3727  6.18191575e-01  3.09095787e-01  7.27126375e-02  3.61825113e-02  1.80912557e-02  4.25584226e-03      2.1160e+03
+
+MOVE_1:  1300000          390470            1329      3.4036e-01
+
+ENER_1:  1300000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1300000             229  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.47265625e-04      3.2686e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1300000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1300000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1300000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1300000 
+Writing checkpoint to file output_restart.chk at step 1300000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1573.802, Simulation ends in:   0 d:   0 h:  13 m 
+
+MOVE_0:  1400000          280255          156280      5.5764e+01      9.4243e-02          139696           69937      5.0064e+01      7.6003e-01          139789           38943      2.7858e+01          419995            1679      3.9977e-01
+
+ENER_0:  1400000     -8.4686e+07      0.0000e+00      0.0000e+00     -3.1541e+05     -3.6053e+04     -8.4334e+07     -5.4910e+07      7.2020e+04     -3.2997e+07      3.5003e+06
+
+STAT_0:  1400000            3721  6.19188390e-01  3.09594195e-01  7.12174147e-02  3.61825113e-02  1.80912557e-02  4.16161697e-03      2.1091e+03
+
+MOVE_1:  1400000          420265            1414      3.3645e-01
+
+ENER_1:  1400000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1400000             235  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.58984375e-04      3.3543e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1400000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1400000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1400000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1400000 
+Writing checkpoint to file output_restart.chk at step 1400000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1574.509, Simulation ends in:   0 d:   0 h:  12 m 
+
+MOVE_0:  1500000          300313          166341      5.5389e+01      9.9349e-02          149545           74870      5.0065e+01      7.6191e-01          149703           41696      2.7852e+01          450029            1772      3.9375e-01
+
+ENER_0:  1500000     -8.4708e+07      0.0000e+00      0.0000e+00     -3.3607e+05     -3.6313e+04     -8.4336e+07     -5.4911e+07      7.2077e+04     -3.3050e+07      3.5532e+06
+
+STAT_0:  1500000            3725  6.18523490e-01  3.09261745e-01  7.22147651e-02  3.61825113e-02  1.80912557e-02  4.22443383e-03      2.1137e+03
+
+MOVE_1:  1500000          450410            1503      3.3370e-01
+
+ENER_1:  1500000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1500000             231  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.51171875e-04      3.2972e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1500000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1500000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1500000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1500000 
+Writing checkpoint to file output_restart.chk at step 1500000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1576.192, Simulation ends in:   0 d:   0 h:  11 m 
+
+MOVE_0:  1600000          320346          176394      5.5064e+01      1.0537e-01          159682           79981      5.0088e+01      7.9212e-01          159876           44474      2.7818e+01          479778            1853      3.8622e-01
+
+ENER_0:  1600000     -8.4677e+07      0.0000e+00      0.0000e+00     -3.1403e+05     -3.5924e+04     -8.4328e+07     -5.4904e+07      7.2880e+04     -3.2970e+07      3.4739e+06
+
+STAT_0:  1600000            3719  6.19521377e-01  3.09760688e-01  7.07179349e-02  3.61825113e-02  1.80912557e-02  4.13020854e-03      2.1068e+03
+
+MOVE_1:  1600000          480318            1590      3.3103e-01
+
+ENER_1:  1600000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1600000             237  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.62890625e-04      3.3828e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1600000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1600000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1600000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1600000 
+Writing checkpoint to file output_restart.chk at step 1600000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1577.460, Simulation ends in:   0 d:   0 h:  10 m 
+
+MOVE_0:  1700000          340379          186398      5.4762e+01      1.0119e-01          169703           84974      5.0072e+01      7.6653e-01          169776           47289      2.7854e+01          509754            1962      3.8489e-01
+
+ENER_0:  1700000     -8.4682e+07      0.0000e+00      0.0000e+00     -3.2208e+05     -3.6248e+04     -8.4324e+07     -5.4899e+07      7.1176e+04     -3.3037e+07      3.5399e+06
+
+STAT_0:  1700000            3724  6.18689581e-01  3.09344791e-01  7.19656284e-02  3.61825113e-02  1.80912557e-02  4.20872961e-03      2.1126e+03
+
+MOVE_1:  1700000          510388            1694      3.3190e-01
+
+ENER_1:  1700000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1700000             232  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.53125000e-04      3.3114e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1700000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1700000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1700000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1700000 
+Writing checkpoint to file output_restart.chk at step 1700000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1575.612, Simulation ends in:   0 d:   0 h:   9 m 
+
+MOVE_0:  1800000          360475          196479      5.4506e+01      1.0562e-01          179821           90033      5.0068e+01      7.6526e-01          179670           50118      2.7894e+01          539692            2040      3.7799e-01
+
+ENER_0:  1800000     -8.4706e+07      0.0000e+00      0.0000e+00     -3.4026e+05     -3.6378e+04     -8.4329e+07     -5.4904e+07      7.1121e+04     -3.3063e+07      3.5664e+06
+
+STAT_0:  1800000            3726  6.18357488e-01  3.09178744e-01  7.24637681e-02  3.61825113e-02  1.80912557e-02  4.24013804e-03      2.1149e+03
+
+MOVE_1:  1800000          540342            1770      3.2757e-01
+
+ENER_1:  1800000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1800000             230  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.49218750e-04      3.2829e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1800000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1800000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1800000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1800000 
+Writing checkpoint to file output_restart.chk at step 1800000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1578.234, Simulation ends in:   0 d:   0 h:   8 m 
+
+MOVE_0:  1900000          380365          206389      5.4261e+01      9.6777e-02          189916           95080      5.0064e+01      7.5987e-01          189730           52828      2.7844e+01          569718            2141      3.7580e-01
+
+ENER_0:  1900000     -8.4701e+07      0.0000e+00      0.0000e+00     -3.2729e+05     -3.6378e+04     -8.4337e+07     -5.4912e+07      7.1534e+04     -3.3063e+07      3.5664e+06
+
+STAT_0:  1900000            3726  6.18357488e-01  3.09178744e-01  7.24637681e-02  3.61825113e-02  1.80912557e-02  4.24013804e-03      2.1149e+03
+
+MOVE_1:  1900000          570271            1871      3.2809e-01
+
+ENER_1:  1900000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  1900000             230  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.49218750e-04      3.2829e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 1900000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 1900000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 1900000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 1900000 
+Writing checkpoint to file output_restart.chk at step 1900000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1576.648, Simulation ends in:   0 d:   0 h:   7 m 
+
+MOVE_0:  2000000          400447          216450      5.4052e+01      9.7823e-02          199918          100103      5.0072e+01      7.6854e-01          199757           55503      2.7785e+01          599635            2237      3.7306e-01
+
+ENER_0:  2000000     -8.4721e+07      0.0000e+00      0.0000e+00     -3.5459e+05     -3.6836e+04     -8.4329e+07     -5.4903e+07      7.1127e+04     -3.3156e+07      3.6588e+06
+
+STAT_0:  2000000            3733  6.17197964e-01  3.08598982e-01  7.42030538e-02  3.61825113e-02  1.80912557e-02  4.35006755e-03      2.1229e+03
+
+MOVE_1:  2000000          600243            1960      3.2653e-01
+
+ENER_1:  2000000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  2000000             223  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.35546875e-04      3.1830e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 2000000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 2000000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 2000000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 2000000 
+Writing checkpoint to file output_restart.chk at step 2000000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1573.400, Simulation ends in:   0 d:   0 h:   6 m 
+
+MOVE_0:  2100000          420314          226417      5.3869e+01      1.0339e-01          209814          105041      5.0064e+01      7.5538e-01          209847           58284      2.7775e+01          629844            2328      3.6962e-01
+
+ENER_0:  2100000     -8.4705e+07      0.0000e+00      0.0000e+00     -3.3902e+05     -3.6443e+04     -8.4330e+07     -5.4906e+07      7.3606e+04     -3.3076e+07      3.5796e+06
+
+STAT_0:  2100000            3727  6.18191575e-01  3.09095787e-01  7.27126375e-02  3.61825113e-02  1.80912557e-02  4.25584226e-03      2.1160e+03
+
+MOVE_1:  2100000          630181            2057      3.2641e-01
+
+ENER_1:  2100000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  2100000             229  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.47265625e-04      3.2686e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 2100000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 2100000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 2100000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 2100000 
+Writing checkpoint to file output_restart.chk at step 2100000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1569.263, Simulation ends in:   0 d:   0 h:   5 m 
+
+MOVE_0:  2200000          440098          236310      5.3695e+01      1.0123e-01          219698          109975      5.0057e+01      7.4665e-01          219937           60930      2.7703e+01          659948            2410      3.6518e-01
+
+ENER_0:  2200000     -8.4705e+07      0.0000e+00      0.0000e+00     -3.2814e+05     -3.6313e+04     -8.4340e+07     -5.4916e+07      7.2918e+04     -3.3050e+07      3.5532e+06
+
+STAT_0:  2200000            3725  6.18523490e-01  3.09261745e-01  7.22147651e-02  3.61825113e-02  1.80912557e-02  4.22443383e-03      2.1137e+03
+
+MOVE_1:  2200000          660319            2141      3.2424e-01
+
+ENER_1:  2200000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  2200000             231  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.51171875e-04      3.2972e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 2200000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 2200000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 2200000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 2200000 
+Writing checkpoint to file output_restart.chk at step 2200000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1567.170, Simulation ends in:   0 d:   0 h:   4 m 
+
+MOVE_0:  2300000          460160          246330      5.3531e+01      9.7216e-02          229661          114970      5.0061e+01      7.5043e-01          230040           63437      2.7577e+01          690078            2502      3.6257e-01
+
+ENER_0:  2300000     -8.4739e+07      0.0000e+00      0.0000e+00     -3.5977e+05     -3.7098e+04     -8.4342e+07     -5.4918e+07      7.3415e+04     -3.3209e+07      3.7117e+06
+
+STAT_0:  2300000            3737  6.16537329e-01  3.08268665e-01  7.51940059e-02  3.61825113e-02  1.80912557e-02  4.41288441e-03      2.1275e+03
+
+MOVE_1:  2300000          690061            2221      3.2186e-01
+
+ENER_1:  2300000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  2300000             219  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.27734375e-04      3.1259e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 2300000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 2300000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 2300000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 2300000 
+Writing checkpoint to file output_restart.chk at step 2300000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1569.781, Simulation ends in:   0 d:   0 h:   3 m 
+
+MOVE_0:  2400000          480179          256359      5.3388e+01      9.9276e-02          239630          119981      5.0069e+01      7.7132e-01          240166           66068      2.7509e+01          719951            2605      3.6183e-01
+
+ENER_0:  2400000     -8.4695e+07      0.0000e+00      0.0000e+00     -3.2649e+05     -3.6248e+04     -8.4332e+07     -5.4909e+07      7.3984e+04     -3.3037e+07      3.5399e+06
+
+STAT_0:  2400000            3724  6.18689581e-01  3.09344791e-01  7.19656284e-02  3.61825113e-02  1.80912557e-02  4.20872961e-03      2.1126e+03
+
+MOVE_1:  2400000          720074            2337      3.2455e-01
+
+ENER_1:  2400000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  2400000             232  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.53125000e-04      3.3114e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 2400000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 2400000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 2400000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 2400000 
+Writing checkpoint to file output_restart.chk at step 2400000
+Checkpoint saved to output_restart.chk
+Steps/sec: 1571.046, Simulation ends in:   0 d:   0 h:   2 m 
+
+MOVE_0:  2500000          499895          266210      5.3253e+01      9.6501e-02          249681          125009      5.0067e+01      7.6879e-01          250206           68773      2.7487e+01          749888            2708      3.6112e-01
+
+ENER_0:  2500000     -8.4712e+07      0.0000e+00      0.0000e+00     -3.4232e+05     -3.6639e+04     -8.4333e+07     -5.4910e+07      7.4264e+04     -3.3116e+07      3.6192e+06
+
+STAT_0:  2500000            3730  6.17694370e-01  3.08847185e-01  7.34584450e-02  3.61825113e-02  1.80912557e-02  4.30295490e-03      2.1195e+03
+
+MOVE_1:  2500000          750330            2434      3.2439e-01
+
+ENER_1:  2500000      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00      0.0000e+00
+
+STAT_1:  2500000             226  0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00  0.00000000e+00  4.41406250e-04      3.2258e+01
+
+Writing binary restart coordinate to file output_BOX_0_restart.coor at step 2500000 
+Finished writing binary restart coordinate to file output_BOX_0_restart.coor at step 2500000 
+Writing binary restart coordinate to file output_BOX_1_restart.coor at step 2500000 
+Finished writing binary restart coordinate to file output_BOX_1_restart.coor at step 2500000 
+Writing checkpoint to file output_restart.chk at step 2500000
+Checkpoint saved to output_restart.chk
+Simulation Time (total): 1.5861e+03 sec.
+
+Move Type                Mol. Kind      BOX_0      BOX_1      
+% Accepted Displacement        MFI      0.00000    0.00000 
+% Accepted Displacement        MFI      0.00000    0.00000 
+% Accepted Displacement        CO2     53.25318    0.00000 
+% Accepted Rotation            MFI      0.00000    0.00000 
+% Accepted Rotation            MFI      0.00000    0.00000 
+% Accepted Rotation            CO2     50.06749    0.00000 
+% Accepted Regrowth            MFI      0.00000    0.00000 
+% Accepted Regrowth            MFI      0.00000    0.00000 
+% Accepted Regrowth            CO2     27.48655    0.00000 
+% Accepted Mol-Transfer        MFI      0.00000    0.00000 
+% Accepted Mol-Transfer        MFI      0.00000    0.00000 
+% Accepted Mol-Transfer        CO2      0.36112    0.32439 
+
+Displacement:                          172.6052    sec.
+Rotation:                               85.9632    sec.
+MultiParticle:                           0.0000    sec.
+Brownian-like MultiParticle:             0.0000    sec.
+Intra Molecule Transfer:                 0.0000    sec.
+Regrowth:                              187.3681    sec.
+Intra Molecule Exchange:                 0.0000    sec.
+Crankshaft:                              0.0000    sec.
+Intra Targeted Transfer:                 0.0000    sec.
+Molecule Exchange:                       0.0000    sec.
+Molecule Transfer:                    1131.0144    sec.
+Nonequilibrium Molecule Transfer:        0.0000    sec.
+Targeted Transfer:                       0.0000    sec.
+
+Info: GOMC Version 2.75
+Info: Completed at: Tue Jul 30 20:45:30 2024
+Info: On hostname: tower
