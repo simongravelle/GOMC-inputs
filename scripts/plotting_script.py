@@ -70,3 +70,20 @@ def evaluate_gomc_performances(dirs, mus):
                 time_measured = True
         performance_gomc.append([mu, total_time, total_GCMC_attempts])
     return np.array(performance_gomc)
+
+def evaluate_lammps_performances(dirs, mus):
+    performance_lammps = []
+    for dir, mu in zip(dirs, mus):
+        N_GCMC_step = 2500000/100
+        if mu > 4100:
+            Nattempt=10
+        else:
+            Nattempt=100
+        log_file = open(dir+"/log.lammps")
+        for line in log_file:
+            pass
+        h, m, s = line.split("Total wall time: ")[1][:-1].split(":")
+        total_time = np.float32(h)*60+np.float32(m) # minutes
+        total_GCMC_attempts = np.int32(N_GCMC_step*Nattempt)
+        performance_lammps.append([mu, total_time, total_GCMC_attempts])
+    return np.array(performance_lammps)
