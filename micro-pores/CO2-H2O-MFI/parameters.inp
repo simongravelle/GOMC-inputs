@@ -1,0 +1,62 @@
+* Parameter file for GOMC
+
+BONDS
+!
+!V(bond) = Kb(b - b0)**2
+!
+!Kb: kcal/mole/A**2
+!b0: A
+!
+! Kb (kcal/mol) = Kb (K) * Boltz. const.; (9999999999 if no stretching)
+!
+!atom type     Kb              b0        description
+OC   CO      9999999999999    1.1800
+OH   HO    99999999999       0.9572 ! TIP4P-2005 O-H bond length
+OH   MO    99999999999       0.1546 ! TIP4P-2005 M-O bond length
+
+ANGLES
+!
+!V(angle) = Ktheta(Theta - Theta0)**2
+!
+!V(Urey-Bradley) = Kub(S - S0)**2
+!
+!Ktheta: kcal/mole/rad**2
+!Theta0: degrees
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+! Ktheta (kcal/mol) = Ktheta (K) * Boltz. const.
+!
+!atom types         Ktheta       Theta0   Kub(?)  S0(?)
+OC   CO   OC      9999999999999    180.000
+HO   OH   HO    9999999999999    104.52  ! TIP4P-2005 H-O-H Fix Angle
+HO   OH   MO    9999999999999     52.26  ! TIP4P-2005 H-O-M Fix Angle
+
+DIHEDRALS
+!
+!V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+!
+!Kchi: kcal/mole
+!n: multiplicity
+!delta: degrees
+!
+! Kchi (kcal/mol) = Kchi (K) * Boltz. const.
+! Boltzmann = 0.0019872041 kcal / (mol * K)
+!atom types           Kchi        n    delta              description
+
+NONBONDED_MIE
+!
+!V(mie) = 4*eps*((sig_ij/r_ij)^n-(sig_ij/r_ij)^6)
+!
+! The energy in the exotic file are expressed in Kelvin (K),
+! as this is the standard convention in the literature.
+! For conversion from K to kcal / mol, multiply
+! by Boltzmann = 0.0019872041 kcal / (mol * K)
+!atom   eps          sig_ij     n    description
+O        128.21       2.708     12   ! 
+Si        18.60       0.677     12   ! 
+OC        82.96       3.011     12   ! 
+CO        29.66       2.789     12   !
+HO        0.0         0.0       12   ! TIP4P-2005
+MO        0.0         0.0       12   ! TIP4P-2005
+OH        93.2        3.1589    12   ! TIP4P-2005

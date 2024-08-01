@@ -1,0 +1,28 @@
+# LAMMPS parameter file for rigid CO2, TIP4P-2005 water, and rigid MFI
+# For conversion from K to kcal / mol, multiply
+# by Boltzmann = 0.0019872041 kcal / (mol * K)
+
+mass O 15.9994
+mass Si 28.0855
+mass OC 15.9994
+mass CO 12.0110
+mass OH 15.9994 # O
+mass HO 1.00784 # H
+mass MO 0.00001 # M
+
+pair_coeff O O 0.25478 2.708
+pair_coeff Si Si 0.03696 0.677
+pair_coeff OC OC 0.164858 3.011
+pair_coeff CO CO 0.05894 2.789
+pair_coeff OH OH 0.185207 3.1589
+pair_coeff HO HO 0.0 1.0
+pair_coeff MO MO 0.0 1.0
+
+bond_coeff CO-OC 0.0 1.18 # rigid
+bond_coeff OH-HO 0.0 0.9572 # rigid
+bond_coeff OH-MO 0.0 0.1546 # rigid
+
+angle_coeff OC-CO-OC 0.0 180.0 # rigid
+angle_coeff HO-OH-HO 0.0 104.52 # rigid
+angle_coeff HO-OH-MO 0.0 52.26 # rigid
+

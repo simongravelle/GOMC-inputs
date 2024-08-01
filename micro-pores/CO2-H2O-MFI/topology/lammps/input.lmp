@@ -1,0 +1,76 @@
+# LAMMPS input script by Simon Gravelle
+# For LAMMPS tutorials, see https://lammpstutorials.github.io
+# Last tested using the 27Jun2024 LAMMPS version
+
+variable Nb0 equal 0
+
+units real
+boundary p p p
+atom_style full
+pair_style lj/cut/coul/long 12
+kspace_style ewald 1.0e-5
+bond_style harmonic
+angle_style harmonic
+pair_modify mix geometric
+special_bonds lj 0.0 0.0 0.0 coul 0.0 0.0 0.0 angle yes
+
+read_data SiO.data
+labelmap atom 1 O 2 Si 3 OC 4 CO 5 OH 6 HO 7 MO
+labelmap bond 1 CO-OC 2 OH-HO 3 OH-MO
+labelmap angle 1 OC-CO-OC 2 HO-OH-HO 3 HO-OH-MO
+
+set type O charge -0.4
+set type Si charge 0.8
+
+molecule CO2mol CO2.mol
+create_atoms 0 random ${Nb0} 87910 NULL mol &
+    CO2mol 454756 overlap 3.0 maxtry 1000
+
+group SiO type O Si
+group CO2 type OC CO
+group H2O type OH HO MO
+include parm.lmp
+set type O mol 1
+set type Si mol 2
+
+run 0
+write_data box.data
+
+clear
+
+variable Nb1 equal 600
+
+units real
+boundary p p p
+atom_style full
+pair_style lj/cut/coul/long 12
+kspace_style ewald 1.0e-5
+bond_style harmonic
+angle_style harmonic
+pair_modify mix geometric
+special_bonds lj 0.0 0.0 0.0 coul 0.0 0.0 0.0 angle yes
+
+region box block -40 40 -40 40 -40 40
+create_box 7 box bond/types 3 angle/types 3 &
+    extra/bond/per/atom 5 extra/angle/per/atom 5 extra/special/per/atom 5
+labelmap atom 1 O 2 Si 3 OC 4 CO 5 OH 6 HO 7 MO
+labelmap bond 1 CO-OC 2 OH-HO 3 OH-MO
+labelmap angle 1 OC-CO-OC 2 HO-OH-HO 3 HO-OH-MO
+
+molecule CO2mol CO2.mol
+create_atoms 0 random ${Nb1} 87910 NULL mol &
+    CO2mol 454756 overlap 3.0 maxtry 1000
+molecule H2Omol H2O.mol
+create_atoms 0 random ${Nb1} 54454 NULL mol &
+    H2Omol 91445 overlap 3.0 maxtry 1000
+    
+set type O charge -0.4
+set type Si charge 0.8
+
+group SiO type O Si
+group CO2 type OC CO
+group H2O type OH HO MO
+include parm.lmp
+
+run 0
+write_data reservoir.data
