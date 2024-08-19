@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/834566780.svg)](https://zenodo.org/doi/10.5281/zenodo.13341456)
+
 # GOMC Optimized Monte Carlo files
 
 This repository contains input files for the [GOMC](https://github.com/GOMC-WSU)
